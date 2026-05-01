@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: dendritic-ann-benchmarks
+message: "If you use this repository, please cite the accompanying manuscript and reference this software package."
+type: software
+authors:
+  - family-names: Canay
+    given-names: Ozkan
+    orcid: "https://orcid.org/0000-0001-7539-6001"
+repository-code: "https://github.com/canay/dendritic-ann-benchmarks"
+url: "https://github.com/canay/dendritic-ann-benchmarks"
+abstract: "Controlled benchmark package for dendritic artificial neural networks with archived accuracy runs, CPU timing runs, manuscript sources, and derived evidence."
+keywords:
+  - dendritic artificial neural networks
+  - parameter-efficient classification
+  - controlled benchmark
+  - image classification
+license: "MIT"

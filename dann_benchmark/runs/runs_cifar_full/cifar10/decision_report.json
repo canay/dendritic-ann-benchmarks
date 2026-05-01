@@ -1,0 +1,13 @@
+{
+  "decision": "continue",
+  "why": [
+    "dann_lrf passed 4/4 quick-kill checks."
+  ],
+  "checks": {
+    "beats_naive_branch_acc": true,
+    "beats_param_mlp_acc": true,
+    "beats_vann_same_efficiency": true,
+    "stable_enough": true
+  },
+  "best_dann": "dann_lrf"
+}

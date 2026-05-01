@@ -1,0 +1,19 @@
+{
+  "dataset": "cifar10",
+  "protocol_type": "timing",
+  "selected_device": "cpu",
+  "purpose": "Relative timing benchmark for train and inference cost under a fixed protocol.",
+  "models": ["dann_lrf", "naive_branch", "mlp_param", "vann_same"],
+  "seeds": [0, 1, 2],
+  "epochs": 10,
+  "batch_size": 256,
+  "num_workers": 0,
+  "subset_fraction": 1.0,
+  "test_subset_fraction": null,
+  "soma_units": 128,
+  "branches_per_soma": 4,
+  "sample_size": 16,
+  "lr": 0.001,
+  "timing_tables_note": "The existing timing CSVs in this folder export best_test_acc because that was the original timing export schema.",
+  "hardware_environment_note": "Exact host CPU details were not captured in the original timing outputs and should be added later if available."
+}

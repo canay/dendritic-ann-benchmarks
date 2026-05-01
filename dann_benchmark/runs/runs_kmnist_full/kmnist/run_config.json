@@ -1,0 +1,35 @@
+{
+  "dataset": "kmnist",
+  "data_root": "./data",
+  "output_dir": "runs_kmnist_full",
+  "models": [
+    "dann_random",
+    "dann_lrf",
+    "dann_grf",
+    "naive_branch",
+    "vann_same",
+    "mlp_param"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "epochs": 30,
+  "batch_size": 256,
+  "lr": 0.001,
+  "val_fraction": 0.1,
+  "subset_fraction": 1.0,
+  "soma_units": 128,
+  "branches_per_soma": 4,
+  "sample_size": 16,
+  "num_workers": 4,
+  "device": "cpu"
+}

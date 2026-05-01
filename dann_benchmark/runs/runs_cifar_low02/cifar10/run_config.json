@@ -1,0 +1,33 @@
+{
+  "dataset": "cifar10",
+  "data_root": "./data",
+  "output_dir": "runs_cifar_low02",
+  "models": [
+    "dann_lrf",
+    "naive_branch",
+    "mlp_param",
+    "vann_same"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "epochs": 30,
+  "batch_size": 256,
+  "lr": 0.001,
+  "val_fraction": 0.1,
+  "subset_fraction": 0.2,
+  "soma_units": 128,
+  "branches_per_soma": 4,
+  "sample_size": 16,
+  "num_workers": 4,
+  "device": "cpu"
+}
