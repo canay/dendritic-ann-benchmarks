@@ -1,44 +1,30 @@
-# Dendritic ANN Benchmark Package
+# Dendritic ANN Benchmark
 
-This folder contains the code and archived results for the controlled DANN benchmark that accompanies the study.
+This folder contains the core public benchmark package.
 
-Intended public repository: `https://github.com/canay/dendritic-ann-benchmarks`
-
-The public repository intentionally omits manuscript source files and contains only code, archived outputs, and supporting result summaries.
-
-## Model families
-
-- `dann_lrf`
-  Main candidate method with fixed local receptive-field routing.
-- `dann_random`
-  DANN variant with random feature sampling.
-- `dann_grf`
-  DANN variant with soma-level grouped receptive fields.
-- `naive_branch`
-  Branch-structured control without dendrite-level nonlinearity.
-- `mlp_param`
-  Approximately parameter-matched dense MLP baseline.
-- `vann_same`
-  Larger dense reference model.
-
-## Folder structure
+## Included
 
 - `src/`
-  Core data loading, model, sampling, and training logic.
-- `runs/`
-  Archived accuracy and timing outputs used by the manuscript.
-- `configs/`
-  Supporting benchmark configuration files.
+  Core data loading, model definitions, sampling logic, and train/eval utilities.
 - `benchmark.py`
-  Main benchmark runner for accuracy experiments.
+  Main accuracy benchmark runner.
 - `timing_benchmark.py`
   Dedicated CPU timing runner.
-- `RERUN_NOTES.md`
-  Notes for optional reruns and fixed-test low-data follow-up.
+- `requirements.txt`
+  Python dependency list.
+- `runs/`
+  Archived accuracy and timing outputs.
+- `DATASETS.md`
+  Dataset provenance and download guidance.
 
-## Historical archived run set
+## Excluded from version control
 
-The manuscript currently relies on the archived folders under `runs/`:
+- `data/`
+  Local dataset cache downloaded from the original dataset providers.
+
+## Archived run set
+
+The public repository preserves these archived folders under `runs/`:
 
 - `runs_fashion_full`
 - `runs_kmnist_full`
@@ -49,29 +35,15 @@ The manuscript currently relies on the archived folders under `runs/`:
 - `timing_fashion_full`
 - `timing_cifar_full`
 
-The low-data folders are preserved as reduced-dataset diagnostics. They are not treated as strict fixed-test low-training-data experiments because the historical subset logic also affected the test loader.
+The low-data folders are retained as reduced-dataset diagnostics. Runtime interpretation should come only from the dedicated timing folders.
 
-## Environment
-
-Install compatible versions of `torch` and `torchvision` for your platform, then install the remaining Python packages:
-
-```text
-pip install pandas numpy pyyaml
-```
-
-## Datasets
-
-- Dataset download and provenance notes are documented in `DATASETS.md`.
-- The benchmark code can download standard datasets automatically when the local cache is missing.
-- The local cache under `data/` is not intended for GitHub version control.
-
-## Example smoke test
+## Smoke test
 
 ```text
 python benchmark.py --dataset fashionmnist --epochs 3 --seeds 0 --models dann_lrf naive_branch mlp_param vann_same
 ```
 
-## Canonical output files
+## Output files
 
 Each archived accuracy folder contains:
 
@@ -83,14 +55,6 @@ Each archived accuracy folder contains:
 
 Each timing folder contains:
 
+- `timing_summary_by_seed.csv`
 - `timing_summary_by_model.csv`
 - `timing_run_config.json`
-- timing histories or logs where available
-
-## Benchmark interpretation
-
-This package is designed for a controlled architectural question, not for leaderboard chasing:
-
-> Does dendritic computation add measurable value beyond parameter matching and beyond branching alone?
-
-That is why `naive_branch` is a first-class control throughout the package.
