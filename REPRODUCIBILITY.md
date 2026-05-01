@@ -1,12 +1,12 @@
 # Reproducibility Guide
 
-This document describes the canonical evidence path for the DANN manuscript package.
+This document describes the canonical evidence path for the public DANN benchmark repository.
 
-Intended public repository: `https://github.com/canay/dendritic-ann-benchmarks`
+Repository URL: `https://github.com/canay/dendritic-ann-benchmarks`
 
 ## Canonical result folders
 
-The manuscript draws its archived benchmark evidence from `dann_benchmark/runs/`.
+The archived benchmark evidence is stored under `dann_benchmark/runs/`.
 
 Main accuracy folders:
 
@@ -22,12 +22,11 @@ Timing folders:
 - `timing_fashion_full/fashionmnist`
 - `timing_cifar_full/cifar10`
 
-## What the manuscript reports
+## What these archived outputs support
 
-- The main manuscript tables do **not** use the historical `best_test_acc` export as the primary metric.
-- Instead, the derived manuscript tables reconstruct **test accuracy at the best validation epoch** from per-epoch history files.
-- The reduced-data folders are treated as **archived reduced-dataset diagnostics**, not as strict fixed-test low-training-data evidence.
-- Wall-clock timing claims come only from the dedicated CPU timing folders.
+- The full-data folders support controlled comparisons among DANN variants, parameter-matched dense baselines, a naive branching control, and a larger dense reference.
+- The reduced-data folders are preserved as archived reduced-dataset diagnostics.
+- Timing claims should be interpreted only from the dedicated CPU timing folders.
 
 ## Environment
 
@@ -39,33 +38,26 @@ Benchmark dependencies are listed in `dann_benchmark/requirements.txt`:
 - `numpy>=1.26`
 - `PyYAML>=6.0`
 
-The local raw dataset cache in `dann_benchmark/data/` is not intended for version control. Reviewers should either let the benchmark code download the datasets automatically or follow `dann_benchmark/DATASETS.md`.
+The local raw dataset cache in `dann_benchmark/data/` is not intended for version control. Reviewers can let the benchmark code download datasets automatically or follow `dann_benchmark/DATASETS.md`.
 
-## Rebuild derived manuscript assets
+## Output structure
 
-From the repository root:
+Each archived accuracy folder contains:
 
-```text
-python paper_package/build_manuscript_assets.py
-```
+- `summary_by_seed.csv`
+- `summary_by_model.csv`
+- `run_config.json`
+- `decision_report.json`
+- `histories/*.csv`
 
-This step rebuilds the derived CSV summaries and manuscript figures under `paper_package/derived/` and `paper_package/manuscript/figures/`.
+Each timing folder contains:
 
-## Recompile the manuscript
-
-From `paper_package/manuscript/`:
-
-```text
-pdflatex -interaction=nonstopmode dann_manuscript.tex
-bibtex dann_manuscript
-pdflatex -interaction=nonstopmode dann_manuscript.tex
-pdflatex -interaction=nonstopmode dann_manuscript.tex
-```
-
-The active manuscript class file is the official Elsevier `elsarticle.cls` documented in `paper_package/manuscript/ELSEVIER_TEMPLATE_PROVENANCE.md`.
+- `timing_summary_by_seed.csv`
+- `timing_summary_by_model.csv`
+- `timing_run_config.json`
 
 ## Scope notes
 
-- The archived accuracy runs were completed across mixed hardware contexts, so runtime interpretation should come from the dedicated CPU timing folders only.
-- The archived reduced-data folders predate the repository-side separation of train-subset and test-subset logic; they are therefore retained as diagnostics.
-- The archived outputs remain useful for the current manuscript because the main reported metric is reconstructed from the history files rather than copied from the historical summary exports.
+- The archived accuracy runs were completed across mixed hardware contexts, so runtime interpretation should come only from the dedicated CPU timing folders.
+- The archived reduced-data folders predate the repository-side separation of train-subset and test-subset logic, so they are best treated as diagnostics rather than as strict fixed-test low-training-data experiments.
+- The supporting statistical outputs in `stats_outputs/` are derived from the archived run files in this repository.

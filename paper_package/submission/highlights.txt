@@ -1,6 +1,0 @@
-Highlights
-
-- Controlled benchmark of dendritic artificial neural networks under parameter matching, naive branching control, reduced-dataset diagnostics, and CPU timing analysis.
-- Main manuscript tables report test accuracy at the best validation epoch reconstructed from per-epoch histories rather than historical best-test exports.
-- DANN-LRF is strongest among low-parameter models on FashionMNIST and CIFAR-10 full, while DANN-RANDOM is numerically preferred on KMNIST.
-- Dendritic nonlinearity adds only a small extra CPU cost beyond routed branching, while the advantage over naive branching remains dataset-dependent.

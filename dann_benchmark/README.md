@@ -1,8 +1,10 @@
 # Dendritic ANN Benchmark Package
 
-This folder contains the code and archived results for the controlled DANN benchmark used in the manuscript.
+This folder contains the code and archived results for the controlled DANN benchmark that accompanies the study.
 
 Intended public repository: `https://github.com/canay/dendritic-ann-benchmarks`
+
+The public repository intentionally omits manuscript source files and contains only code, archived outputs, and supporting result summaries.
 
 ## Model families
 
