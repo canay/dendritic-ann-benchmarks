@@ -6,7 +6,7 @@ Repository URL: `https://github.com/canay/dendritic-ann-benchmarks`
 
 ## Contact
 
-- Ozkan Canay
+- Özkan Canay
 - Department of Information Systems and Technologies
 - Faculty of Computer and Information Sciences
 - Sakarya University
