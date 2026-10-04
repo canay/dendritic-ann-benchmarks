@@ -1,0 +1,127 @@
+{
+ "generated_at": "2026-10-04T02:00:35+03:00",
+ "script": {
+  "path": "figures/r1/build_r1_assets.py",
+  "sha256": "E841C15515B49EB76DC32BB4C837F9D65A6BD17D03EC8BB1D9E3B9B7EF770587"
+ },
+ "python": "3.12.12",
+ "libraries": {
+  "numpy": "2.3.5",
+  "pandas": "2.3.3",
+  "matplotlib": "3.11.1"
+ },
+ "fonts": {
+  "label": [
+   "<font-dir>\\font-05-600.ttf",
+   "F223737C04596A982ABA80DAC8AD27168CB434A8D0D1BA1D070A2C56DBB55B39"
+  ],
+  "text": [
+   "<font-dir>\\claude-choice-08-barlow-regular.ttf",
+   "77FB1AC54D2CEB980E3EBDFA7A9D0F64E85A66E4FDFB7F914A7B0AA08FB33A5D"
+  ]
+ },
+ "inputs": [
+  {
+   "path": "experiments/2026-10-03_claude_mta_cuda_r1_frozen/processed_outputs/summary_by_cell.csv",
+   "sha256": "540CC523892B0D81160C3BE848C415DBC2CE677AEB8EBF3FB6E7A616B4410485"
+  },
+  {
+   "path": "experiments/2026-10-03_claude_mta_cuda_r1_frozen/processed_outputs/decision_inputs.csv",
+   "sha256": "0B0F49F9C5A0D5DA0356F7AFD93DA5EBC72C7C405F9B5AB947C433C84211CBBC"
+  },
+  {
+   "path": "experiments/2026-10-03_claude_mta_cuda_r1_frozen/processed_outputs/descriptive.csv",
+   "sha256": "89509EDD43292CA8F720CF74353CA7478A85AC38D046AE5C2C06968D34CBD8E0"
+  },
+  {
+   "path": "experiments/2026-10-03_claude_mta_cuda_r1_frozen/processed_outputs/unit_table.csv",
+   "sha256": "5F8401AE0F029E92EF680C8926ABE60FE51C41C3D607D4CDD68931848F78D8DE"
+  },
+  {
+   "path": "experiments/2026-10-03_claude_mta_cuda_r1_frozen/processed_outputs/replication_r0_vs_r1.csv",
+   "sha256": "EEE5F79D96226672962022B6B1851640CFA8599EF0DAF4CB575766BA7634FEC0"
+  },
+  {
+   "path": "experiments/2026-10-03_claude_mta_cuda_r1_frozen/processed_outputs/composite_decisions.csv",
+   "sha256": "EC24AB604DF7D8D8F92962583FC8FD7913485A4AC176DC57B6228F430CC93A1D"
+  },
+  {
+   "path": "experiments/2026-10-04_claude_mta_cuda_r1_f10_gpu/processed_outputs/f10_summary.csv",
+   "sha256": "95E513D1ADB5E1F55009B166E38D6A19E1D6C4B59829FE2434212F966AFF5CC7"
+  },
+  {
+   "path": "experiments/2026-10-04_claude_mta_cuda_r1_f10_gpu/processed_outputs/f10_ratios.csv",
+   "sha256": "ECE25376B7E0C22C4CFC0305FE661151B6484E5DDC1B1087A0EDDB16BBC159E6"
+  },
+  {
+   "path": "experiments/2026-10-04_claude_mta_cuda_r1_cnnflat/processed_outputs/arm_summary.csv",
+   "sha256": "F5EA42C1ABC063463F789E2906CBCAB6ABE96B31F3E7BD5FED12EE5CE28304AC"
+  },
+  {
+   "path": "experiments/2026-10-04_claude_mta_cuda_r1_cnnflat/processed_outputs/arm_paired.csv",
+   "sha256": "87FB016EC376CD1EA60736DC6A40B9464BE3839DE6843676D39FD134541B7BD0"
+  },
+  {
+   "path": "experiments/2026-10-03_claude_mta_cuda_r1_frozen/raw_outputs/2026-10-03_claude_mta_cuda_r1_frozen__outputs.tar.gz",
+   "sha256": "95F82D1AD21823E25F93F5C4C00D62D2BFA850F694C7727FB579C8E7E6AEA971"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "figures/r1/out/table3_families.tex",
+   "sha256": "B8685FD1519BE8FDB0684B0C199F4488C52A222D7011BCEFE6D66CC1F28899B9"
+  },
+  {
+   "path": "figures/r1/out/table4_accuracy.tex",
+   "sha256": "5A76C0B0D86D7C0E7E181BA2BFF883B48A4E7EA3B4FC041B70830D3F754CCBE0"
+  },
+  {
+   "path": "figures/r1/out/table5_contrasts.tex",
+   "sha256": "636950FE90CCB1CE01B75312258698031561940FE3A66E03171ABC89F517BA29"
+  },
+  {
+   "path": "figures/r1/out/table6_references.tex",
+   "sha256": "B0DAC9CCD1CC2CB5A3AFCE7A53E5796BECB7B4380849545994F8554BFA614804"
+  },
+  {
+   "path": "figures/r1/out/table7_timing.tex",
+   "sha256": "D721CE570944F5B230C63F650755214A54CBB5AE2A2A613044DFFB7E381556E9"
+  },
+  {
+   "path": "figures/r1/out/f8c_fit_diagnostics.csv",
+   "sha256": "12CECFE2DCFE7F4F2718098B7852935C6DA2896867A617E6C59076C7EE0075D5"
+  },
+  {
+   "path": "figures/r1/out/f8c_fit_diagnostics_units.csv",
+   "sha256": "54DF401A6E589BC6168D425C58268E2F8CD9BF562A66E07DD8751B5936B4BF3B"
+  },
+  {
+   "path": "figures/r1/out/figure_data_sensitivity.csv",
+   "sha256": "3D104B3E24794EECC93652942E8089A1DBA36D4A32379EA8D68FF59D6452A2CA"
+  },
+  {
+   "path": "NEURO/manuscript-r1/fig_sensitivity.png",
+   "sha256": "C78D66CDE28BDF4DE6187A300FDDC5D09D542D726045D7F1BA9FBEE68F838F6A"
+  },
+  {
+   "path": "figures/r1/out/fig_sensitivity.pdf",
+   "sha256": "93CA33846757E1F352D4F81B5C159D3C8A8E58B216BB1570B14C06920112ADBC"
+  },
+  {
+   "path": "figures/r1/out/figure_data_controls.csv",
+   "sha256": "2C484248E0066DD4A5893930662BB30997E7DB33E80C6F57B79F0C330FF5F946"
+  },
+  {
+   "path": "NEURO/manuscript-r1/fig_controls.png",
+   "sha256": "D12B2F1E8AD4FA702951A9608C0A8B634A256E9C959D8BE834CF2E061F50FAFF"
+  },
+  {
+   "path": "figures/r1/out/fig_controls.pdf",
+   "sha256": "B1ADEA11598C8EAED940DA89F8AB923BF060BA6C23EE6A02B7D2A594BE1F8A45"
+  },
+  {
+   "path": "figures/r1/out/text_numbers.json",
+   "sha256": "DC3D215B5D6B18CB71C1085F5B221BF28C0E61F2C367F4E1D5FB3A2E1C3182C6"
+  }
+ ]
+}

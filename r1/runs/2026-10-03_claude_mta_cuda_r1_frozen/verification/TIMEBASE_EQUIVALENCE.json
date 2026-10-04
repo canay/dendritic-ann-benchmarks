@@ -1,0 +1,18 @@
+{
+ "freeze_id": "NEURO-R1-FREEZE-001",
+ "design_timebase": "not time-indexed (image classification); every record carries an ISO-8601 timestamp with an explicit offset",
+ "artifact_timebase": "not time-indexed (image classification); every record carries an ISO-8601 timestamp with an explicit offset",
+ "external_timebase": "not time-indexed (image classification); every record carries an ISO-8601 timestamp with an explicit offset",
+ "equivalent": true,
+ "reasoning": "The datasets (FashionMNIST, KMNIST, CIFAR-10) carry no time index, so the design, the artifacts and the external references share no time axis that could be misaligned. Run records use UTC with a Z suffix, human notes use +03:00 (Europe/Istanbul) with the offset written out; both hosts' clocks were read with explicit offsets.",
+ "samples_with_explicit_offsets": {
+  "frozen_unit_started_at_utc": "2026-10-03T17:39:14Z",
+  "frozen_worker_ended_at_utc": "2026-10-03T18:35:24Z",
+  "f10_gpu_terminal_ended_at_utc": "2026-10-03T21:26:18Z",
+  "protocol_lock_local": "2026-10-04T00:18:48+03:00"
+ },
+ "written_at_local": "2026-10-04 00:55 +03:00",
+ "tool": "Cowork-Claude",
+ "model": "claude-opus-5-5 (max)",
+ "operation_id": "neucom-r1-f10-cnnarm-delivery-aggregation-20261004"
+}

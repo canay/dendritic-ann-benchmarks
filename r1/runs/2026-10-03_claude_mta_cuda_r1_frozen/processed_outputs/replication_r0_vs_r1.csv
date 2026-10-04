@@ -1,0 +1,15 @@
+condition,A,B,r0_mean_diff_pp,r0_p_holm,r1_mean_diff_pp_seeds0_9,r1_p_holm_seeds0_9,sign_agrees,holm_decision_agrees
+fashion_full,dann_lrf,mlp_param,1.6729999999999987,0.005859375,1.7,0.005859375,True,True
+fashion_full,dann_lrf,naive_branch,0.3689999999999982,0.005859375,0.594,0.005859375,True,True
+fashion_full,dann_lrf,dann_random,0.5499999999999994,0.005859375,0.424,0.005859375,True,True
+kmnist_full,dann_lrf,mlp_param,4.064000000000001,0.005859375,4.46,0.005859375,True,True
+kmnist_full,dann_lrf,naive_branch,-0.02499999999999947,0.845703125,0.124,0.431640625,False,True
+kmnist_full,dann_lrf,dann_random,-0.514,0.09765625,-0.47,0.0546875,True,True
+cifar_full,dann_lrf,mlp_param,17.041000000000004,0.00390625,17.266,0.00390625,True,True
+cifar_full,dann_lrf,naive_branch,1.0070000000000006,0.00390625,1.157,0.005033508200606249,True,True
+fashion_low02,dann_lrf,mlp_param,0.6340000000000012,0.00390625,0.6440000000000001,0.010067016401212499,True,True
+fashion_low02,dann_lrf,naive_branch,0.25599999999999956,0.1640625,0.27,0.130859375,True,True
+fashion_low01,dann_lrf,mlp_param,0.17899999999999916,0.46484375,0.19899999999999998,0.38671875,True,True
+fashion_low01,dann_lrf,naive_branch,0.040000000000001146,0.74609375,0.055,0.6100665567498502,True,True
+cifar_low02,dann_lrf,mlp_param,14.715,0.00390625,14.716,0.00390625,True,True
+cifar_low02,dann_lrf,naive_branch,0.6359999999999999,0.01953125,0.6440000000000001,0.01953125,True,True

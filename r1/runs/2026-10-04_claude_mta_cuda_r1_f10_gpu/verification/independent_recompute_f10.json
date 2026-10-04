@@ -1,0 +1,7 @@
+{
+ "compared": "f10_summary means/SDs, peak memory and RSS means, and the A11 ratios recomputed from the raw archives",
+ "cells": 34,
+ "ratios": 8,
+ "problems": [],
+ "verdict": "PASS"
+}

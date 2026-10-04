@@ -1,0 +1,9 @@
+device,dataset,ratio,train_s_per_epoch_mean_ratio,inference_ms_per_1000_mean_ratio
+cpu,cifar10,dann_lrf / naive_branch,1.0320705412376647,1.0319099925068738
+cpu,cifar10,dann_lrf / mlp_param,2.869813876358485,3.22419917661843
+cpu,fashionmnist,dann_lrf / naive_branch,0.9968484263736388,1.000502600813631
+cpu,fashionmnist,dann_lrf / mlp_param,3.3084262259363473,3.989621965132508
+cuda,cifar10,dann_lrf / naive_branch,1.0037576550576113,1.0081055431654766
+cuda,cifar10,dann_lrf / mlp_param,1.0454683910284228,1.0488392403125566
+cuda,fashionmnist,dann_lrf / naive_branch,1.0066497103847156,0.9946410573229663
+cuda,fashionmnist,dann_lrf / mlp_param,1.0498168747295649,1.0577330482581302

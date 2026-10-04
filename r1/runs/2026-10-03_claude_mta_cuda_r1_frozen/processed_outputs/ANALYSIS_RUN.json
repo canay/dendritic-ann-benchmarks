@@ -1,0 +1,16 @@
+{
+ "manifest": "<project-root>\\MD\\09_audit_revision\\R1_FREEZE\\R1_ANALYSIS_MANIFEST.json",
+ "manifest_sha256": "A86260DB680D7248081DFE452D0559104FED285C7CB35F8D4F843BCE51F8A804",
+ "aggregate_sha256": "301AA589613520E77684659160D49B33C0F1A0E045A54648554B48A202651610",
+ "plan": "<project-root>\\experiments\\2026-10-03_claude_mta_cuda_r1_frozen\\configs\\plan_frozen_all.json",
+ "plan_sha256": "DA9CD235A79D9EE5B59CB8E26F9F3F7138BE56F36A832F8235C5FE5503FD007D",
+ "units": 1615,
+ "versions": {
+  "python": "3.12.12",
+  "numpy": "2.3.5",
+  "scipy": "1.18.0"
+ },
+ "versions_match_pinned": true,
+ "a4_pass": true,
+ "identity_checked": true
+}

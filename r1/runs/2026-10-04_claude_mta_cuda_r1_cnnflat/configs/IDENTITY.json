@@ -1,0 +1,17 @@
+{
+ "freeze_id": "MC-NEURO-R1-002",
+ "change_id": "MC-NEURO-R1-002",
+ "amendment": "A12 (exploratory)",
+ "run_id": "2026-10-04_claude_mta_cuda_r1_cnnflat",
+ "plan_sha256": "1801381C9C2210061CE4A63E6159E93F64A9225FAF906108152D107A0249A4AE",
+ "code_fingerprint": "C28236E7E6DFA37BA882E85C4E82A8AC8C88602D31BB5B5E8462ACC5A9FF5E3B",
+ "environment": {
+  "python": "3.12.3",
+  "torch": "2.13.0+cu130",
+  "torch_cuda": "13.0",
+  "torchvision": "0.28.0+cu130",
+  "os_family": "Linux",
+  "arch": "x86_64"
+ },
+ "protocol_sha256": "132E31634BDDA0E028543F5E17DBF014CE7D477E6AC2C485D59CB5E64C5A618B"
+}

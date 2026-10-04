@@ -1,0 +1,12 @@
+{
+ "schema_version": 1,
+ "rule": "per F1 unit, equality of all history.csv columns",
+ "prefreeze_archive": "2026-10-03_claude_mta_cuda_r1_main_grid__outputs.tar.gz",
+ "prefreeze_archive_sha256": "7D13DECC6B8BDE7693C358135CBB503107CB6D5601CA44B7942734E9D4CDA54C",
+ "script_sha256": "19E3BDE3793C56129531F52AD6A745D7976068C3EEC366D4616BB358D0FC5FBA",
+ "units_compared": 560,
+ "byte_identical_histories": 560,
+ "all_columns_equal": 560,
+ "mismatched": 0,
+ "mismatch_details": []
+}

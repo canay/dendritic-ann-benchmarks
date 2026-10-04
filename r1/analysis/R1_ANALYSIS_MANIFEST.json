@@ -1,0 +1,3886 @@
+{
+ "schema_version": 1,
+ "artifact_kind": "r1_analysis_manifest",
+ "freeze_id": "NEURO-R1-FREEZE-001",
+ "change_id": "MC-NEURO-R1-001",
+ "primary_metric": "test accuracy at the validation-selected epoch, RE-DERIVED from history.csv (first epoch of minimum val_loss); analysed as the integer number of correctly classified test images out of n_test",
+ "n_test": 10000,
+ "statistics": {
+  "unit": "seed; paired within condition; differences are integer counts of correct test images",
+  "test": "scipy.stats.wilcoxon(d, zero_method='wilcox', correction=False, alternative='two-sided', method=M) with M='exact' when no difference is zero, no absolute difference is tied and n <= 50, otherwise M='approx'; the method used is written per contrast",
+  "all_zero": "all differences zero -> p_two_sided = 1.0, outcome 'no_difference', d_z undefined",
+  "bootstrap": "paired percentile 95 % CI of the mean integer difference, R = 10000 resamples, numpy.random.default_rng(bootstrap_seed)",
+  "effect_sizes": "d_z = mean / sd (ddof = 1) of the integer differences, 'undefined' when sd = 0; matched-pairs rank-biserial over |d| with average ranks, zeros dropped",
+  "multiplicity": "Holm step-down within each holm_group",
+  "reporting_scale": "differences reported in percentage points = 100 * count / n_test",
+  "pinned_versions": {
+   "python": "3.12.12",
+   "numpy": "2.3.5",
+   "scipy": "1.18.0"
+  }
+ },
+ "decision_rule": {
+  "supported": "holm_p < 0.05 and ci95_low > 0",
+  "reverse": "holm_p < 0.05 and ci95_high < 0",
+  "not_supported": "otherwise, including no_difference",
+  "missing_or_invalid_unit": "no decision for the affected contrast; the run is incomplete and nothing is promoted",
+  "sanity": "F5 MLP-Param contrasts: a 'supported' or 'reverse' label flags an engineering problem to investigate, not a finding"
+ },
+ "contrasts": [
+  {
+   "id": "F1:fashion_full:dann_lrf-mlp_param",
+   "holm_group": "F1:fashion_full",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "mlp_param"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003001,
+   "note": ""
+  },
+  {
+   "id": "F1:fashion_full:dann_lrf-naive_branch",
+   "holm_group": "F1:fashion_full",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "rq2",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003002,
+   "note": ""
+  },
+  {
+   "id": "F1:fashion_full:dann_lrf-dann_random",
+   "holm_group": "F1:fashion_full",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "dann_random"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003003,
+   "note": ""
+  },
+  {
+   "id": "F1:kmnist_full:dann_lrf-mlp_param",
+   "holm_group": "F1:kmnist_full",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "kmnist_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "kmnist_full",
+    "model": "mlp_param"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003004,
+   "note": ""
+  },
+  {
+   "id": "F1:kmnist_full:dann_lrf-naive_branch",
+   "holm_group": "F1:kmnist_full",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "kmnist_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "kmnist_full",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "rq2",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003005,
+   "note": ""
+  },
+  {
+   "id": "F1:kmnist_full:dann_lrf-dann_random",
+   "holm_group": "F1:kmnist_full",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "kmnist_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "kmnist_full",
+    "model": "dann_random"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003006,
+   "note": ""
+  },
+  {
+   "id": "F1:cifar_full:dann_lrf-mlp_param",
+   "holm_group": "F1:cifar_full",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "mlp_param"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003007,
+   "note": ""
+  },
+  {
+   "id": "F1:cifar_full:dann_lrf-naive_branch",
+   "holm_group": "F1:cifar_full",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "rq2",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003008,
+   "note": ""
+  },
+  {
+   "id": "F1:cifar_full:dann_lrf-dann_random",
+   "holm_group": "F1:cifar_full",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "dann_random"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003009,
+   "note": ""
+  },
+  {
+   "id": "F1:fashion_low02:dann_lrf-mlp_param",
+   "holm_group": "F1:fashion_low02",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "fashion_low02",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "fashion_low02",
+    "model": "mlp_param"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003010,
+   "note": ""
+  },
+  {
+   "id": "F1:fashion_low02:dann_lrf-naive_branch",
+   "holm_group": "F1:fashion_low02",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "fashion_low02",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "fashion_low02",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003011,
+   "note": ""
+  },
+  {
+   "id": "F1:fashion_low01:dann_lrf-mlp_param",
+   "holm_group": "F1:fashion_low01",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "fashion_low01",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "fashion_low01",
+    "model": "mlp_param"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003012,
+   "note": ""
+  },
+  {
+   "id": "F1:fashion_low01:dann_lrf-naive_branch",
+   "holm_group": "F1:fashion_low01",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "fashion_low01",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "fashion_low01",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003013,
+   "note": ""
+  },
+  {
+   "id": "F1:cifar_low02:dann_lrf-mlp_param",
+   "holm_group": "F1:cifar_low02",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "cifar_low02",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "cifar_low02",
+    "model": "mlp_param"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003014,
+   "note": ""
+  },
+  {
+   "id": "F1:cifar_low02:dann_lrf-naive_branch",
+   "holm_group": "F1:cifar_low02",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "cifar_low02",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "cifar_low02",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003015,
+   "note": ""
+  },
+  {
+   "id": "F2:fashion_full:dann_lrf-compact_cnn",
+   "holm_group": "F2",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F2_baselines",
+    "condition": "fashion_full",
+    "model": "compact_cnn"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003016,
+   "note": "reference bound; cannot change an attribution statement"
+  },
+  {
+   "id": "F2:fashion_full:dann_lrf-lc_net",
+   "holm_group": "F2",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F2_baselines",
+    "condition": "fashion_full",
+    "model": "lc_net"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003017,
+   "note": "reference bound; cannot change an attribution statement"
+  },
+  {
+   "id": "F2:fashion_full:dann_lrf-sparse_mlp",
+   "holm_group": "F2",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F2_baselines",
+    "condition": "fashion_full",
+    "model": "sparse_mlp"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003018,
+   "note": "reference bound; cannot change an attribution statement"
+  },
+  {
+   "id": "F2:kmnist_full:dann_lrf-compact_cnn",
+   "holm_group": "F2",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "kmnist_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F2_baselines",
+    "condition": "kmnist_full",
+    "model": "compact_cnn"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003019,
+   "note": "reference bound; cannot change an attribution statement"
+  },
+  {
+   "id": "F2:kmnist_full:dann_lrf-lc_net",
+   "holm_group": "F2",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "kmnist_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F2_baselines",
+    "condition": "kmnist_full",
+    "model": "lc_net"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003020,
+   "note": "reference bound; cannot change an attribution statement"
+  },
+  {
+   "id": "F2:kmnist_full:dann_lrf-sparse_mlp",
+   "holm_group": "F2",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "kmnist_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F2_baselines",
+    "condition": "kmnist_full",
+    "model": "sparse_mlp"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003021,
+   "note": "reference bound; cannot change an attribution statement"
+  },
+  {
+   "id": "F2:cifar_full:dann_lrf-compact_cnn",
+   "holm_group": "F2",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F2_baselines",
+    "condition": "cifar_full",
+    "model": "compact_cnn"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003022,
+   "note": "reference bound; cannot change an attribution statement"
+  },
+  {
+   "id": "F2:cifar_full:dann_lrf-lc_net",
+   "holm_group": "F2",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F2_baselines",
+    "condition": "cifar_full",
+    "model": "lc_net"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003023,
+   "note": "reference bound; cannot change an attribution statement"
+  },
+  {
+   "id": "F2:cifar_full:dann_lrf-sparse_mlp",
+   "holm_group": "F2",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F2_baselines",
+    "condition": "cifar_full",
+    "model": "sparse_mlp"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003024,
+   "note": "reference bound; cannot change an attribution statement"
+  },
+  {
+   "id": "F2:cifar_full:dann_lrf-mlp_matched",
+   "holm_group": "F2",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F2_baselines",
+    "condition": "cifar_full",
+    "model": "mlp_matched"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003025,
+   "note": "reference bound"
+  },
+  {
+   "id": "F2:cifar_low02:dann_lrf-mlp_matched",
+   "holm_group": "F2",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "cifar_low02",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F2_baselines",
+    "condition": "cifar_low02",
+    "model": "mlp_matched"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003026,
+   "note": "reference bound"
+  },
+  {
+   "id": "F5:fashion:did_lrf-random",
+   "holm_group": "F5",
+   "status": "confirmatory",
+   "kind": "did",
+   "A": {
+    "minuend": {
+     "family": "F5_shuffled",
+     "condition": "fashion_full_shuffled",
+     "model": "dann_lrf"
+    },
+    "subtrahend": {
+     "family": "F5_shuffled",
+     "condition": "fashion_full_shuffled",
+     "model": "dann_random"
+    }
+   },
+   "B": {
+    "minuend": {
+     "family": "main_grid",
+     "condition": "fashion_full",
+     "model": "dann_lrf"
+    },
+    "subtrahend": {
+     "family": "main_grid",
+     "condition": "fashion_full",
+     "model": "dann_random"
+    }
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "locality",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003027,
+   "note": "A-B = (LRF-RANDOM)_permuted - (LRF-RANDOM)_unpermuted; negative supports the locality explanation"
+  },
+  {
+   "id": "F5:fashion:mlp_param_permuted-unpermuted",
+   "holm_group": "F5",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "F5_shuffled",
+    "condition": "fashion_full_shuffled",
+    "model": "mlp_param"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "mlp_param"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "sanity",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003028,
+   "note": "distributional sanity only: MLP-Param is permutation invariant in function class and initial distribution, not per seed"
+  },
+  {
+   "id": "F5:cifar:did_lrf-random",
+   "holm_group": "F5",
+   "status": "confirmatory",
+   "kind": "did",
+   "A": {
+    "minuend": {
+     "family": "F5_shuffled",
+     "condition": "cifar_full_shuffled",
+     "model": "dann_lrf"
+    },
+    "subtrahend": {
+     "family": "F5_shuffled",
+     "condition": "cifar_full_shuffled",
+     "model": "dann_random"
+    }
+   },
+   "B": {
+    "minuend": {
+     "family": "main_grid",
+     "condition": "cifar_full",
+     "model": "dann_lrf"
+    },
+    "subtrahend": {
+     "family": "main_grid",
+     "condition": "cifar_full",
+     "model": "dann_random"
+    }
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "locality",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003029,
+   "note": "A-B = (LRF-RANDOM)_permuted - (LRF-RANDOM)_unpermuted; negative supports the locality explanation"
+  },
+  {
+   "id": "F5:cifar:mlp_param_permuted-unpermuted",
+   "holm_group": "F5",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "F5_shuffled",
+    "condition": "cifar_full_shuffled",
+    "model": "mlp_param"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "mlp_param"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "sanity",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003030,
+   "note": "distributional sanity only: MLP-Param is permutation invariant in function class and initial distribution, not per seed"
+  },
+  {
+   "id": "F6:cifar_full:dann_lrf_channel-dann_lrf",
+   "holm_group": "F6",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "F6_channel",
+    "condition": "cifar_full",
+    "model": "dann_lrf_channel"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003031,
+   "note": ""
+  },
+  {
+   "id": "F6:cifar_low02:dann_lrf_channel-dann_lrf",
+   "holm_group": "F6",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "F6_channel",
+    "condition": "cifar_low02",
+    "model": "dann_lrf_channel"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "cifar_low02",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003032,
+   "note": ""
+  },
+  {
+   "id": "F8b:fashion_full:dann_lrf-naive_branch_matched_init",
+   "holm_group": "F8b",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F8_fairness",
+    "condition": "fashion_full",
+    "model": "naive_branch_matched_init"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "rq2_controlled",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003033,
+   "note": ""
+  },
+  {
+   "id": "F8b:kmnist_full:dann_lrf-naive_branch_matched_init",
+   "holm_group": "F8b",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "kmnist_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F8_fairness",
+    "condition": "kmnist_full",
+    "model": "naive_branch_matched_init"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "rq2_controlled",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003034,
+   "note": ""
+  },
+  {
+   "id": "F8b:cifar_full:dann_lrf-naive_branch_matched_init",
+   "holm_group": "F8b",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F8_fairness",
+    "condition": "cifar_full",
+    "model": "naive_branch_matched_init"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "rq2_controlled",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003035,
+   "note": ""
+  },
+  {
+   "id": "F9:cifar_full:stem_dann_lrf-stem_naive_branch",
+   "holm_group": "F9",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "F9_convstem",
+    "condition": "cifar_full",
+    "model": "stem_dann_lrf"
+   },
+   "B": {
+    "family": "F9_convstem",
+    "condition": "cifar_full",
+    "model": "stem_naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "transfer",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003036,
+   "note": ""
+  },
+  {
+   "id": "F9:cifar_full:stem_dann_lrf-stem_mlp",
+   "holm_group": "F9",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "F9_convstem",
+    "condition": "cifar_full",
+    "model": "stem_dann_lrf"
+   },
+   "B": {
+    "family": "F9_convstem",
+    "condition": "cifar_full",
+    "model": "stem_mlp"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003037,
+   "note": ""
+  },
+  {
+   "id": "F9:fashion_full:stem_dann_lrf-stem_naive_branch",
+   "holm_group": "F9",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "F9_convstem",
+    "condition": "fashion_full",
+    "model": "stem_dann_lrf"
+   },
+   "B": {
+    "family": "F9_convstem",
+    "condition": "fashion_full",
+    "model": "stem_naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "transfer",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003038,
+   "note": ""
+  },
+  {
+   "id": "F9:fashion_full:stem_dann_lrf-stem_mlp",
+   "holm_group": "F9",
+   "status": "confirmatory",
+   "kind": "paired",
+   "A": {
+    "family": "F9_convstem",
+    "condition": "fashion_full",
+    "model": "stem_dann_lrf"
+   },
+   "B": {
+    "family": "F9_convstem",
+    "condition": "fashion_full",
+    "model": "stem_mlp"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+   ],
+   "decision": "label",
+   "direction": "positive = A better than B (more test images correct)",
+   "bootstrap_seed": 20261003039,
+   "note": ""
+  }
+ ],
+ "descriptive": [
+  {
+   "id": "F3:fashion_full_K8_B2:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "fashion_full_K8_B2",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:fashion_full_K8_B4:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "fashion_full_K8_B4",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:fashion_full_K8_B8:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "fashion_full_K8_B8",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:fashion_full_K16_B2:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "fashion_full_K16_B2",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:fashion_full_K16_B4:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "fashion_full_K16_B4",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:fashion_full_K16_B8:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "fashion_full_K16_B8",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:fashion_full_K32_B2:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "fashion_full_K32_B2",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:fashion_full_K32_B4:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "fashion_full_K32_B4",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:fashion_full_K32_B8:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "fashion_full_K32_B8",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:kmnist_full_K8_B2:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K8_B2",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:kmnist_full_K8_B2:dann_lrf-dann_random",
+   "kind": "pair",
+   "A": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K8_B2",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K8_B2",
+    "model": "dann_random"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003510
+  },
+  {
+   "id": "F3:kmnist_full_K8_B4:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K8_B4",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:kmnist_full_K8_B4:dann_lrf-dann_random",
+   "kind": "pair",
+   "A": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K8_B4",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K8_B4",
+    "model": "dann_random"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003512
+  },
+  {
+   "id": "F3:kmnist_full_K8_B8:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K8_B8",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:kmnist_full_K8_B8:dann_lrf-dann_random",
+   "kind": "pair",
+   "A": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K8_B8",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K8_B8",
+    "model": "dann_random"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003514
+  },
+  {
+   "id": "F3:kmnist_full_K16_B2:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K16_B2",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:kmnist_full_K16_B2:dann_lrf-dann_random",
+   "kind": "pair",
+   "A": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K16_B2",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K16_B2",
+    "model": "dann_random"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003516
+  },
+  {
+   "id": "F3:kmnist_full_K16_B4:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K16_B4",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:kmnist_full_K16_B4:dann_lrf-dann_random",
+   "kind": "pair",
+   "A": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K16_B4",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K16_B4",
+    "model": "dann_random"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003518
+  },
+  {
+   "id": "F3:kmnist_full_K16_B8:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K16_B8",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:kmnist_full_K16_B8:dann_lrf-dann_random",
+   "kind": "pair",
+   "A": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K16_B8",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K16_B8",
+    "model": "dann_random"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003520
+  },
+  {
+   "id": "F3:kmnist_full_K32_B2:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K32_B2",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:kmnist_full_K32_B2:dann_lrf-dann_random",
+   "kind": "pair",
+   "A": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K32_B2",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K32_B2",
+    "model": "dann_random"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003522
+  },
+  {
+   "id": "F3:kmnist_full_K32_B4:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K32_B4",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:kmnist_full_K32_B4:dann_lrf-dann_random",
+   "kind": "pair",
+   "A": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K32_B4",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K32_B4",
+    "model": "dann_random"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003524
+  },
+  {
+   "id": "F3:kmnist_full_K32_B8:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K32_B8",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:kmnist_full_K32_B8:dann_lrf-dann_random",
+   "kind": "pair",
+   "A": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K32_B8",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_K32_B8",
+    "model": "dann_random"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003526
+  },
+  {
+   "id": "F3:fashion_full_P2:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "fashion_full_P2",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:fashion_full_P6:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "fashion_full_P6",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:kmnist_full_P2:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_P2",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F3:kmnist_full_P6:dann_lrf",
+   "kind": "cell",
+   "cell": {
+    "family": "F3_sensitivity",
+    "condition": "kmnist_full_P6",
+    "model": "dann_lrf"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "F4:fashion_full_rand_data",
+   "kind": "sd_across_values",
+   "A": {
+    "family": "F4_randomness",
+    "condition": "fashion_full_rand_data",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F4_randomness",
+    "condition": "fashion_full_rand_data",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "note": "conditional sensitivity around one background point (PCR-007); the value 0 point is shared by the three sweeps"
+  },
+  {
+   "id": "F4:fashion_full_rand_init",
+   "kind": "sd_across_values",
+   "A": {
+    "family": "F4_randomness",
+    "condition": "fashion_full_rand_init",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F4_randomness",
+    "condition": "fashion_full_rand_init",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "note": "conditional sensitivity around one background point (PCR-007); the value 0 point is shared by the three sweeps"
+  },
+  {
+   "id": "F4:fashion_full_rand_routing",
+   "kind": "sd_across_values",
+   "A": {
+    "family": "F4_randomness",
+    "condition": "fashion_full_rand_routing",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F4_randomness",
+    "condition": "fashion_full_rand_routing",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "note": "conditional sensitivity around one background point (PCR-007); the value 0 point is shared by the three sweeps"
+  },
+  {
+   "id": "F7:fashion_full:dann_lrf_slope_a0",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "fashion_full",
+    "model": "dann_lrf_slope_a0"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:fashion_full:dann_lrf_slope_a0p05",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "fashion_full",
+    "model": "dann_lrf_slope_a0p05"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:fashion_full:dann_lrf_slope_a0p1",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "fashion_full",
+    "model": "dann_lrf_slope_a0p1"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:fashion_full:dann_lrf_slope_a0p2",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "fashion_full",
+    "model": "dann_lrf_slope_a0p2"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:fashion_full:dann_lrf_slope_a0p5",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "fashion_full",
+    "model": "dann_lrf_slope_a0p5"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:fashion_full:dann_lrf_slope_a1",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "fashion_full",
+    "model": "dann_lrf_slope_a1"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:kmnist_full:dann_lrf_slope_a0",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "kmnist_full",
+    "model": "dann_lrf_slope_a0"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:kmnist_full:dann_lrf_slope_a0p05",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "kmnist_full",
+    "model": "dann_lrf_slope_a0p05"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:kmnist_full:dann_lrf_slope_a0p1",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "kmnist_full",
+    "model": "dann_lrf_slope_a0p1"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:kmnist_full:dann_lrf_slope_a0p2",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "kmnist_full",
+    "model": "dann_lrf_slope_a0p2"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:kmnist_full:dann_lrf_slope_a0p5",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "kmnist_full",
+    "model": "dann_lrf_slope_a0p5"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:kmnist_full:dann_lrf_slope_a1",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "kmnist_full",
+    "model": "dann_lrf_slope_a1"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:cifar_full:dann_lrf_slope_a0",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "cifar_full",
+    "model": "dann_lrf_slope_a0"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:cifar_full:dann_lrf_slope_a0p05",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "cifar_full",
+    "model": "dann_lrf_slope_a0p05"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:cifar_full:dann_lrf_slope_a0p1",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "cifar_full",
+    "model": "dann_lrf_slope_a0p1"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:cifar_full:dann_lrf_slope_a0p2",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "cifar_full",
+    "model": "dann_lrf_slope_a0p2"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:cifar_full:dann_lrf_slope_a0p5",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "cifar_full",
+    "model": "dann_lrf_slope_a0p5"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F7:cifar_full:dann_lrf_slope_a1",
+   "kind": "cell",
+   "cell": {
+    "family": "F7_slope",
+    "condition": "cifar_full",
+    "model": "dann_lrf_slope_a1"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "id": "F8a:fashion_full_lr3em4:dann_lrf-naive_branch",
+   "kind": "pair",
+   "A": {
+    "family": "F8_fairness",
+    "condition": "fashion_full_lr3em4",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F8_fairness",
+    "condition": "fashion_full_lr3em4",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003752,
+   "note": "descriptive learning-rate sensitivity; no selection, no equivalence claim at n = 5"
+  },
+  {
+   "id": "F8a:fashion_full_lr1em3:dann_lrf-naive_branch",
+   "kind": "pair",
+   "A": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "fashion_full",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003753,
+   "note": "descriptive learning-rate sensitivity; no selection, no equivalence claim at n = 5"
+  },
+  {
+   "id": "F8a:fashion_full_lr3em3:dann_lrf-naive_branch",
+   "kind": "pair",
+   "A": {
+    "family": "F8_fairness",
+    "condition": "fashion_full_lr3em3",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F8_fairness",
+    "condition": "fashion_full_lr3em3",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003754,
+   "note": "descriptive learning-rate sensitivity; no selection, no equivalence claim at n = 5"
+  },
+  {
+   "id": "F8a:kmnist_full_lr3em4:dann_lrf-naive_branch",
+   "kind": "pair",
+   "A": {
+    "family": "F8_fairness",
+    "condition": "kmnist_full_lr3em4",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F8_fairness",
+    "condition": "kmnist_full_lr3em4",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003755,
+   "note": "descriptive learning-rate sensitivity; no selection, no equivalence claim at n = 5"
+  },
+  {
+   "id": "F8a:kmnist_full_lr1em3:dann_lrf-naive_branch",
+   "kind": "pair",
+   "A": {
+    "family": "main_grid",
+    "condition": "kmnist_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "kmnist_full",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003756,
+   "note": "descriptive learning-rate sensitivity; no selection, no equivalence claim at n = 5"
+  },
+  {
+   "id": "F8a:kmnist_full_lr3em3:dann_lrf-naive_branch",
+   "kind": "pair",
+   "A": {
+    "family": "F8_fairness",
+    "condition": "kmnist_full_lr3em3",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F8_fairness",
+    "condition": "kmnist_full_lr3em3",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003757,
+   "note": "descriptive learning-rate sensitivity; no selection, no equivalence claim at n = 5"
+  },
+  {
+   "id": "F8a:cifar_full_lr3em4:dann_lrf-naive_branch",
+   "kind": "pair",
+   "A": {
+    "family": "F8_fairness",
+    "condition": "cifar_full_lr3em4",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F8_fairness",
+    "condition": "cifar_full_lr3em4",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003758,
+   "note": "descriptive learning-rate sensitivity; no selection, no equivalence claim at n = 5"
+  },
+  {
+   "id": "F8a:cifar_full_lr1em3:dann_lrf-naive_branch",
+   "kind": "pair",
+   "A": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "main_grid",
+    "condition": "cifar_full",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003759,
+   "note": "descriptive learning-rate sensitivity; no selection, no equivalence claim at n = 5"
+  },
+  {
+   "id": "F8a:cifar_full_lr3em3:dann_lrf-naive_branch",
+   "kind": "pair",
+   "A": {
+    "family": "F8_fairness",
+    "condition": "cifar_full_lr3em3",
+    "model": "dann_lrf"
+   },
+   "B": {
+    "family": "F8_fairness",
+    "condition": "cifar_full_lr3em3",
+    "model": "naive_branch"
+   },
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "bootstrap_seed": 20261003760,
+   "note": "descriptive learning-rate sensitivity; no selection, no equivalence claim at n = 5"
+  }
+ ],
+ "composite_rules": [
+  {
+   "id": "RQ2_robustness",
+   "inputs": [
+    "F1:fashion_full:dann_lrf-naive_branch",
+    "F1:kmnist_full:dann_lrf-naive_branch",
+    "F1:cifar_full:dann_lrf-naive_branch"
+   ],
+   "rule": "robust if >= 2 of the 3 full-data contrasts are 'supported'; otherwise not_robust and the abstract, highlights and conclusion are narrowed; every 'reverse' contrast is named in the text as a dataset where Naive-Branch is better"
+  },
+  {
+   "id": "F8b_vs_F1",
+   "inputs": [
+    [
+     "F1:fashion_full:dann_lrf-naive_branch",
+     "F8b:fashion_full:dann_lrf-naive_branch_matched_init"
+    ],
+    [
+     "F1:kmnist_full:dann_lrf-naive_branch",
+     "F8b:kmnist_full:dann_lrf-naive_branch_matched_init"
+    ],
+    [
+     "F1:cifar_full:dann_lrf-naive_branch",
+     "F8b:cifar_full:dann_lrf-naive_branch_matched_init"
+    ]
+   ],
+   "rule": "per condition: F1 supported and F8b not supported -> the F1 difference in that condition is not attributed to the dendrite nonlinearity (initialisation order cannot be excluded); F8b supported and F1 not -> F8b is reported as the controlled estimate; the attribution is always worded as the total effect of the dendrite activation under the shared training protocol"
+  },
+  {
+   "id": "F9_transfer",
+   "inputs": [
+    "F9:cifar_full:stem_dann_lrf-stem_naive_branch",
+    "F9:fashion_full:stem_dann_lrf-stem_naive_branch"
+   ],
+   "rule": "transfer observed if both supported; dataset-specific if exactly one supported; not observed otherwise; any reverse is named"
+  },
+  {
+   "id": "F5_locality",
+   "inputs": [
+    "F5:fashion:did_lrf-random",
+    "F5:cifar:did_lrf-random"
+   ],
+   "rule": "per dataset: holm_p < 0.05 and ci95_high < 0 -> the LRF advantage over RANDOM shrinks under permutation (locality explanation supported); otherwise report the measured change and its CI; 'disappears' is never claimed without an equivalence margin"
+  }
+ ],
+ "replication": {
+  "r0_paired_tests": "paper_package/derived/paired_tests_validation_selected.csv",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "rule": "for each r0 contrast (condition_key, A, B) recompute the same contrast on R1 seeds 0-9, Holm within condition over the r0 contrast set of that condition; report sign agreement and Holm-decision agreement (r0: p_holm_per_condition < 0.05); descriptive"
+ },
+ "a4_checks": {
+  "definition": "equality of the epoch column and the six metric columns (train_loss, train_acc, val_loss, val_acc, test_loss, test_acc) of history.csv; dataset and seed columns must also match; model_name is expected to differ and is checked against the unit's own model id (PCR-010)",
+  "gate": "all pairs equal before any F7 or F8 contrast is interpreted",
+  "pairs": [
+   {
+    "id": "A4:fashion_full:slope_a0p1=dann_lrf:s00",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 0
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "fashion_full",
+     "model": "dann_lrf",
+     "seed": 0
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a1=nb_matched_init:s00",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 0
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "fashion_full",
+     "model": "naive_branch_matched_init",
+     "seed": 0
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a0p1=dann_lrf:s01",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 1
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "fashion_full",
+     "model": "dann_lrf",
+     "seed": 1
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a1=nb_matched_init:s01",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 1
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "fashion_full",
+     "model": "naive_branch_matched_init",
+     "seed": 1
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a0p1=dann_lrf:s02",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 2
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "fashion_full",
+     "model": "dann_lrf",
+     "seed": 2
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a1=nb_matched_init:s02",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 2
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "fashion_full",
+     "model": "naive_branch_matched_init",
+     "seed": 2
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a0p1=dann_lrf:s03",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 3
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "fashion_full",
+     "model": "dann_lrf",
+     "seed": 3
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a1=nb_matched_init:s03",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 3
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "fashion_full",
+     "model": "naive_branch_matched_init",
+     "seed": 3
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a0p1=dann_lrf:s04",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 4
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "fashion_full",
+     "model": "dann_lrf",
+     "seed": 4
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a1=nb_matched_init:s04",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 4
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "fashion_full",
+     "model": "naive_branch_matched_init",
+     "seed": 4
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a0p1=dann_lrf:s05",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 5
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "fashion_full",
+     "model": "dann_lrf",
+     "seed": 5
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a1=nb_matched_init:s05",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 5
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "fashion_full",
+     "model": "naive_branch_matched_init",
+     "seed": 5
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a0p1=dann_lrf:s06",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 6
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "fashion_full",
+     "model": "dann_lrf",
+     "seed": 6
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a1=nb_matched_init:s06",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 6
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "fashion_full",
+     "model": "naive_branch_matched_init",
+     "seed": 6
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a0p1=dann_lrf:s07",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 7
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "fashion_full",
+     "model": "dann_lrf",
+     "seed": 7
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a1=nb_matched_init:s07",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 7
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "fashion_full",
+     "model": "naive_branch_matched_init",
+     "seed": 7
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a0p1=dann_lrf:s08",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 8
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "fashion_full",
+     "model": "dann_lrf",
+     "seed": 8
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a1=nb_matched_init:s08",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 8
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "fashion_full",
+     "model": "naive_branch_matched_init",
+     "seed": 8
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a0p1=dann_lrf:s09",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 9
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "fashion_full",
+     "model": "dann_lrf",
+     "seed": 9
+    }
+   },
+   {
+    "id": "A4:fashion_full:slope_a1=nb_matched_init:s09",
+    "left": {
+     "family": "F7_slope",
+     "condition": "fashion_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 9
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "fashion_full",
+     "model": "naive_branch_matched_init",
+     "seed": 9
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a0p1=dann_lrf:s00",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 0
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "kmnist_full",
+     "model": "dann_lrf",
+     "seed": 0
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a1=nb_matched_init:s00",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 0
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "kmnist_full",
+     "model": "naive_branch_matched_init",
+     "seed": 0
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a0p1=dann_lrf:s01",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 1
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "kmnist_full",
+     "model": "dann_lrf",
+     "seed": 1
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a1=nb_matched_init:s01",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 1
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "kmnist_full",
+     "model": "naive_branch_matched_init",
+     "seed": 1
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a0p1=dann_lrf:s02",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 2
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "kmnist_full",
+     "model": "dann_lrf",
+     "seed": 2
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a1=nb_matched_init:s02",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 2
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "kmnist_full",
+     "model": "naive_branch_matched_init",
+     "seed": 2
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a0p1=dann_lrf:s03",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 3
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "kmnist_full",
+     "model": "dann_lrf",
+     "seed": 3
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a1=nb_matched_init:s03",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 3
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "kmnist_full",
+     "model": "naive_branch_matched_init",
+     "seed": 3
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a0p1=dann_lrf:s04",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 4
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "kmnist_full",
+     "model": "dann_lrf",
+     "seed": 4
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a1=nb_matched_init:s04",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 4
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "kmnist_full",
+     "model": "naive_branch_matched_init",
+     "seed": 4
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a0p1=dann_lrf:s05",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 5
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "kmnist_full",
+     "model": "dann_lrf",
+     "seed": 5
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a1=nb_matched_init:s05",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 5
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "kmnist_full",
+     "model": "naive_branch_matched_init",
+     "seed": 5
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a0p1=dann_lrf:s06",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 6
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "kmnist_full",
+     "model": "dann_lrf",
+     "seed": 6
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a1=nb_matched_init:s06",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 6
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "kmnist_full",
+     "model": "naive_branch_matched_init",
+     "seed": 6
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a0p1=dann_lrf:s07",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 7
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "kmnist_full",
+     "model": "dann_lrf",
+     "seed": 7
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a1=nb_matched_init:s07",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 7
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "kmnist_full",
+     "model": "naive_branch_matched_init",
+     "seed": 7
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a0p1=dann_lrf:s08",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 8
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "kmnist_full",
+     "model": "dann_lrf",
+     "seed": 8
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a1=nb_matched_init:s08",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 8
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "kmnist_full",
+     "model": "naive_branch_matched_init",
+     "seed": 8
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a0p1=dann_lrf:s09",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 9
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "kmnist_full",
+     "model": "dann_lrf",
+     "seed": 9
+    }
+   },
+   {
+    "id": "A4:kmnist_full:slope_a1=nb_matched_init:s09",
+    "left": {
+     "family": "F7_slope",
+     "condition": "kmnist_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 9
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "kmnist_full",
+     "model": "naive_branch_matched_init",
+     "seed": 9
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a0p1=dann_lrf:s00",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 0
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "cifar_full",
+     "model": "dann_lrf",
+     "seed": 0
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a1=nb_matched_init:s00",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 0
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "cifar_full",
+     "model": "naive_branch_matched_init",
+     "seed": 0
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a0p1=dann_lrf:s01",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 1
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "cifar_full",
+     "model": "dann_lrf",
+     "seed": 1
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a1=nb_matched_init:s01",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 1
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "cifar_full",
+     "model": "naive_branch_matched_init",
+     "seed": 1
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a0p1=dann_lrf:s02",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 2
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "cifar_full",
+     "model": "dann_lrf",
+     "seed": 2
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a1=nb_matched_init:s02",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 2
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "cifar_full",
+     "model": "naive_branch_matched_init",
+     "seed": 2
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a0p1=dann_lrf:s03",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 3
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "cifar_full",
+     "model": "dann_lrf",
+     "seed": 3
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a1=nb_matched_init:s03",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 3
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "cifar_full",
+     "model": "naive_branch_matched_init",
+     "seed": 3
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a0p1=dann_lrf:s04",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 4
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "cifar_full",
+     "model": "dann_lrf",
+     "seed": 4
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a1=nb_matched_init:s04",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 4
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "cifar_full",
+     "model": "naive_branch_matched_init",
+     "seed": 4
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a0p1=dann_lrf:s05",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 5
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "cifar_full",
+     "model": "dann_lrf",
+     "seed": 5
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a1=nb_matched_init:s05",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 5
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "cifar_full",
+     "model": "naive_branch_matched_init",
+     "seed": 5
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a0p1=dann_lrf:s06",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 6
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "cifar_full",
+     "model": "dann_lrf",
+     "seed": 6
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a1=nb_matched_init:s06",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 6
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "cifar_full",
+     "model": "naive_branch_matched_init",
+     "seed": 6
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a0p1=dann_lrf:s07",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 7
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "cifar_full",
+     "model": "dann_lrf",
+     "seed": 7
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a1=nb_matched_init:s07",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 7
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "cifar_full",
+     "model": "naive_branch_matched_init",
+     "seed": 7
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a0p1=dann_lrf:s08",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 8
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "cifar_full",
+     "model": "dann_lrf",
+     "seed": 8
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a1=nb_matched_init:s08",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 8
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "cifar_full",
+     "model": "naive_branch_matched_init",
+     "seed": 8
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a0p1=dann_lrf:s09",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a0p1",
+     "seed": 9
+    },
+    "right": {
+     "family": "main_grid",
+     "condition": "cifar_full",
+     "model": "dann_lrf",
+     "seed": 9
+    }
+   },
+   {
+    "id": "A4:cifar_full:slope_a1=nb_matched_init:s09",
+    "left": {
+     "family": "F7_slope",
+     "condition": "cifar_full",
+     "model": "dann_lrf_slope_a1",
+     "seed": 9
+    },
+    "right": {
+     "family": "F8_fairness",
+     "condition": "cifar_full",
+     "model": "naive_branch_matched_init",
+     "seed": 9
+    }
+   }
+  ]
+ },
+ "pre_freeze_f1_crosscheck": {
+  "left_run": "2026-10-03_claude_mta_cuda_r1_main_grid (pre-freeze, blind)",
+  "rule": "after the decision artifact exists and the frozen run is delivered: per F1 unit, equality of all history.csv columns; a mismatch is a determinism finding and never substitutes old for new results"
+ }
+}

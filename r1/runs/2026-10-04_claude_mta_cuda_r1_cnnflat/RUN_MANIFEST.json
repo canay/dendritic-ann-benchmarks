@@ -1,0 +1,121 @@
+{
+ "run_id": "2026-10-04_claude_mta_cuda_r1_cnnflat",
+ "makale_kisa_adi": "dendritic_ann_branching_controlled",
+ "operation_id": "neucom-r1-f10-cnnarm-launch-20261004",
+ "methodology_change_id": "MC-NEURO-R1-002",
+ "protocol": {
+  "path": "MD/09_audit_revision/R1_EVIDENCE_PROTOCOL.md",
+  "sha256_at_lock": "132e31634bdda0e028543f5e17dbf014ce7d477e6ac2c485d59cb5e64c5a618b",
+  "locked_at": "2026-10-04T00:18:48+03:00",
+  "family": "exploratory spatial-head CNN arm + 6 lineage anchors (amendments A12, A13)"
+ },
+ "status": "verified",
+ "run_kind": "exploratory",
+ "tool": "Cowork-Claude",
+ "model_or_session": "claude-opus-5-5 (max); requested Claude Fable 5.1 / max (quota exhausted, author-approved continuation)",
+ "host_label": "mta-cuda",
+ "hostname": "<experiment-host>",
+ "local_run_folder": "experiments/2026-10-04_claude_mta_cuda_r1_cnnflat/",
+ "remote_run_folder": "<remote-home>/experiments/SCI-reports_bias_dendritic_dac_package/2026-10-03/runs/2026-10-04_claude_mta_cuda_r1_cnnflat/",
+ "sync_status": "verified",
+ "platform_envelope": {
+  "os_family": "Linux",
+  "arch": "x86_64",
+  "python": "3.12.3"
+ },
+ "created_at_local": "2026-10-04 00:28 +03:00",
+ "working_directory": "<remote-home>/experiments/SCI-reports_bias_dendritic_dac_package/2026-10-03/code_c2f5fc5dd54a",
+ "command": "nice -n 10 ionice -c2 -n7 bash r1/run_worker.sh <code_dir> <plan> <out_dir> 2026-10-04_claude_mta_cuda_r1_cnnflat <remote-home>/experiments/SCI-reports_bias_dendritic_dac_package/2026-10-03/data <k> 2 (k = 0, 1; R1_IDENTITY_FILE set; each worker: python3 r1/r1_runner.py run --device cuda --deterministic --threads 2 --heartbeat-seconds 60 --unit-timeout-seconds 1800 --max-attempts 2 --identity-file <identity>)",
+ "script": "r1/r1_runner.py (unchanged since v4); cnn_flat through r1/r1_models.build_r1_model",
+ "config": "configs/plan_cnn_flat_arm.json (sha256 1801381C9C2210061CE4A63E6159E93F64A9225FAF906108152D107A0249A4AE, 66 units)",
+ "launcher": "runs/op8_controller_mta.sh (sha256 90D94E555A3395FE...): GPU timing -> (COMPLETED/0) CNN arm -> (both workers COMPLETED/0) CPU timing; launched 2026-10-04 00:20:12 +03:00 after hash, idle-GPU and resource preflight (mta_launch_op8.sh)",
+ "dataset": "FashionMNIST, KMNIST, CIFAR-10 (full data)",
+ "split": "90/10 fit/validation; full 10,000-image test set",
+ "seed": "0-19 (anchors: seed 0)",
+ "hyperparameters": {
+  "epochs": 30,
+  "batch_size": 256,
+  "lr": 0.001,
+  "val_fraction": 0.1,
+  "soma_units": 128,
+  "branches_per_soma": 4,
+  "sample_size": 16,
+  "patch_h": 4,
+  "patch_w": 4
+ },
+ "baselines_or_methods": [
+  "cnn_flat (exploratory)",
+  "dann_lrf (anchor, seed 0)",
+  "compact_cnn (anchor, seed 0)"
+ ],
+ "resource_limits": {
+  "workers_threads": "2 workers x 2 threads",
+  "priority": "nice -n 10, ionice -c2 -n7",
+  "gpu": "shared with nothing else of this project"
+ },
+ "started_at_local": "2026-10-04 00:26:19 +03:00",
+ "freeze_binding": {
+  "freeze_id": "MC-NEURO-R1-002 (exploratory; post_gate_continuation fresh_change_id_required)",
+  "identity_file": "experiments/2026-10-04_claude_mta_cuda_r1_cnnflat/configs/IDENTITY.json",
+  "identity_sha256": "564CD42825BD3E2E05A23C661F4F54C958932F51CE9A38151FBAFB54F808880A"
+ },
+ "manuscript_locations": [
+  "NEURO/manuscript-r1 F2 reference table: exploratory row group (main text or supplement); response to R1-3, R2-10, R2-11"
+ ],
+ "notes": "exploratory; cannot change any Section 4 or 8 verdict",
+ "environment": {
+  "os": "Ubuntu 24.04.4 LTS, kernel 7.0.0-28-generic",
+  "shell": "bash",
+  "runtime": "Python 3.12.3 (/usr/bin/python3, user site <remote-home>/.local)",
+  "virtualenv_or_container": "none; existing user-site CUDA environment (TOOL_ENVIRONMENT.md MTA-cuda Environment rule)",
+  "libraries_or_lockfile": "torch 2.13.0+cu130, torchvision 0.28.0+cu130, numpy 1.26.4 (frozen environment of protocol Section 1)",
+  "cpu": "Intel i7-14700 (20C/28T; 8 two-thread performance cores, 12 efficiency cores)",
+  "ram": "31 GiB + 15 GiB swap",
+  "gpu": "NVIDIA GeForce RTX 5060, 8151 MiB, driver 595.91.07, CUDA 13.0 runtime"
+ },
+ "durability_preflight": {
+  "atomic_unit": "one (condition, model, seed) training run of 30 epochs",
+  "planned_unit_count": 66,
+  "checkpoint_path_and_schema": "units/<unit_id>/result.json (schema_version 1, as the frozen run) and units/<unit_id>/attempt_<k>/history.csv",
+  "resume_command": "run_worker.sh per worker (as launch_batch.sh); r1_runner.py skips units whose result.json validates",
+  "resume_validation_rule": "r1_runner validate_result: schema/status, unit-spec sha256, history sha256, rows == epochs, finite values, summary re-derived from the history, identity equal",
+  "interruption_smoke_evidence": "r1_runner.py unchanged since v4 (durability smoke of 2026-10-03: controlled stop 75 -> resume 0, 6/6 identical); v5 CNN two-epoch smoke 3/3 byte-identical across two runs (env/smoke_mta in the GPU timing run folder)",
+  "per_unit_timeout": "1800 s (in-process watchdog -> TIMED_OUT 124; worker loop restarts up to 3 times; max 2 attempts per unit)",
+  "whole_run_watchdog": "controller waits for both workers; any terminal status other than COMPLETED/0 stops the chain; ceiling 3 h (A11)",
+  "eta_basis_and_margin": "v5 smoke 0.45-0.6 s per epoch -> about 20-30 s per unit, 66 units on two workers -> 12-20 min; ceiling 3 h",
+  "max_workers_and_thread_limits": "2 workers x 2 threads (OMP/MKL/OPENBLAS/NUMEXPR=2, torch.set_num_threads(2)), nice -n 10, ionice -c2 -n7",
+  "progress_heartbeat_path_and_stall_threshold": "workers/heartbeat_w<k>.json (+ .jsonl), 60 s; stall suspected if two heartbeats show no CPU and no batch progress and no new result.json",
+  "heartbeat_cadence_schema_writer_and_atomicity": "60 s; worker thread; as the frozen run (r1_runner Heartbeat)",
+  "heartbeat_advancement_smoke_evidence": "r1_runner unchanged since v4: smoke durability/hb 4 advancing pairs (2026-10-03)",
+  "opaque_phase_supervisor_sampling_rule": "no wrapper between run_worker.sh and python3 except nice/ionice (exec-style, same PID); CPU time sampled inside the worker",
+  "raw_output_contract": "per unit history.csv + result.json; per worker environment, heartbeat, terminal status",
+  "aggregate_script_and_inputs": "r1/aggregate_cnn_arm.py (sha256 A96C3F8AA8506CDBB365DAE4C0F51107CEA02672830D4BE641C9D3517BB367F7, written before any result was downloaded) over the validated arm units and the verified frozen archive (F1 DANN-LRF, F2 compact CNN, full data, seeds 0-19)",
+  "plot_script_and_inputs": "table rendering from processed_outputs/arm_summary.csv and arm_paired.csv only (to be added)",
+  "decision_artifact_path_and_criterion_schema": "not applicable: exploratory, no test, no label (A12); anchors.csv gates the paired analysis",
+  "decision_discriminator_statistics_persisted": "anchor equality (bytes and metric columns) persisted in anchors.csv; paired statistics in arm_paired.csv",
+  "terminal_status_paths": "workers/terminal_status_w0.json, terminal_status_w1.json",
+  "predecessor_terminal_status_poll_rule": "started by the controller only when the GPU timing's terminal_status file read COMPLETED 0 (00:26:19 +03:00)",
+  "opaque_runtime_bound_admission": "mode=heartbeat; threshold_seconds=300; evidence=frozen-run heartbeats of the same runner; overrun=heartbeat_or_fail_closed",
+  "atomic_write_strategy": "temp file + flush + fsync + os.replace (r1_runner.atomic_write_json); result.json written last",
+  "disk_ram_resource_preflight": "2026-10-04 00:20 +03:00 on mta-cuda: / 19 GB free (96 %), above the 10 GB policy floor; RAM 25 GiB available; GPU 323 MiB used and 0 compute apps; expected outputs < 20 MB",
+  "container_image_layer_budget": "not applicable (no container images)",
+  "phased_engine_schedule_rule": "not applicable (no container engine); disk-bounded host handled by DEC-NEURO-004 staged delivery",
+  "recovery_merge_equivalence_gate": "merging partial units is not used; a unit is either validly complete or re-run under a new attempt",
+  "code_snapshot_path_and_sha256": "src/ (25 files, CODE_MANIFEST.json) = env/transfer/code_snapshot.tar.gz sha256 C2F5FC5DD54A26DC689A9A92A93A0DE2B19191E5D58E5CD686D9F0CFD7C5A11E; code fingerprint C28236E7E6DFA37BA882E85C4E82A8AC8C88602D31BB5B5E8462ACC5A9FF5E3B; remote copy code_c2f5fc5dd54a/ verified 25/25",
+  "local_delivery_and_verification_rule": "after the chain ends: on mta-cuda tar.gz the run folder and write the receipt (archive sha256, every member's sha256) BEFORE transfer; scp into raw_outputs/; r1/verify_delivery.py (archive vs receipt, member set, member hashes, 4 negative controls); only then remove our remote copy (DEC-NEURO-004)",
+  "partial_result_promotion_policy": "prohibited",
+  "notification_lifecycle": "Telegram `mesaj` is not available on mta-cuda (measured 2026-10-03); lifecycle through terminal_status and heartbeats polled by this session; controller log runs/op8_controller.log"
+ },
+ "ended_at_local": "2026-10-04 00:36:24 +03:00",
+ "delivery": {
+  "archive": "raw_outputs/2026-10-04_claude_mta_cuda_r1_cnnflat__outputs.tar.gz",
+  "archive_sha256": "DE7A6875E123E5893709654E15C97F0D43B97DA31D2C26B25DC89A233F07DB32",
+  "file_members": 215,
+  "receipt": "raw_outputs/2026-10-04_claude_mta_cuda_r1_cnnflat__TRANSFER_RECEIPT_outputs.json",
+  "verification": "raw_outputs/DELIVERY_VERIFICATION.json (PASS, 4/4 negative controls)",
+  "remote_copy": "removed after verification (DEC-NEURO-004)",
+  "verified_at_local": "2026-10-04 00:53 +0300",
+  "operation_id": "neucom-r1-f10-cnnarm-delivery-aggregation-20261004"
+ },
+ "processed_outputs": "experiments/2026-10-04_claude_mta_cuda_r1_cnnflat/processed_outputs/"
+}

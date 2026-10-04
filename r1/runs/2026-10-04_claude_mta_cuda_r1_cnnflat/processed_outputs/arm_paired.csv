@@ -1,0 +1,7 @@
+contrast,dataset,reference,n,mean_diff_count,ci95_low_count,ci95_high_count,d_z,rank_biserial,bootstrap_seed,bootstrap_resamples,mean_diff_pp,ci95_low_pp,ci95_high_pp,label
+fashionmnist: cnn_flat minus dann_lrf,fashionmnist,dann_lrf,20,284.6,270.1,298.25,8.475661031419616,1.0,20261004,10000,2.8460000000000005,2.7010000000000005,2.9825,"exploratory (no test, no Holm, no verdict)"
+fashionmnist: cnn_flat minus compact_cnn,fashionmnist,compact_cnn,20,906.45,881.7,930.35,15.92639144416163,1.0,20261005,10000,9.0645,8.817,9.3035,"exploratory (no test, no Holm, no verdict)"
+kmnist: cnn_flat minus dann_lrf,kmnist,dann_lrf,20,1012.35,988.5,1038.4,17.22271179473752,1.0,20261006,10000,10.1235,9.885,10.384000000000002,"exploratory (no test, no Holm, no verdict)"
+kmnist: cnn_flat minus compact_cnn,kmnist,compact_cnn,20,2906.4,2834.6,2977.1525,17.453668165606985,1.0,20261007,10000,29.064,28.346,29.771525,"exploratory (no test, no Holm, no verdict)"
+cifar10: cnn_flat minus dann_lrf,cifar10,dann_lrf,20,1291.9,1242.1,1337.9012500000001,11.662306463165434,1.0,20261008,10000,12.919000000000002,12.421,13.3790125,"exploratory (no test, no Holm, no verdict)"
+cifar10: cnn_flat minus compact_cnn,cifar10,compact_cnn,20,1244.7,1188.0987499999999,1296.5,9.881484111818551,1.0,20261009,10000,12.447,11.880987499999998,12.965,"exploratory (no test, no Holm, no verdict)"

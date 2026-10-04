@@ -22,6 +22,17 @@ Repository URL: `https://github.com/canay/dendritic-ann-benchmarks`
   Supporting statistical summary derived from the archived benchmark histories.
 - `REPRODUCIBILITY.md`
   Short guide to the canonical result folders and reproduction scope.
+- `r1/`
+  Materials of the revised study: code snapshots, run manifests, configurations, per-run training histories,
+  processed outputs, verification records, the statistical analysis manifest and the result-table and
+  result-figure scripts. Start with `r1/README.md`.
+
+## Revision (R1) materials
+
+The revised study extends the submitted benchmark with 20 seeds per condition, a matched-initialization control,
+a pixel-permutation control, channel-aware routing, reference priors at the same parameter budget (a locally
+connected network, a random-sparse MLP and two compact convolutional networks), a convolutional-stem setting and
+CPU and GPU timing. All of it lives under `r1/`; the folders of the submitted version below are unchanged.
 
 ## What is intentionally excluded
 

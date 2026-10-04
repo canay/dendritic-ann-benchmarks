@@ -1,0 +1,51 @@
+{
+ "schema_version": 1,
+ "verdict": "PASS",
+ "run_id": "2026-10-04_claude_mta_cuda_r1_f10_cpu",
+ "verified_at_local": "2026-10-04 00:53 +0300",
+ "verified_at_utc": "2026-10-03T21:53:59Z",
+ "tool": "Cowork-Claude",
+ "model": "claude-opus-5-5 (max)",
+ "operation_id": "neucom-r1-f10-cnnarm-delivery-aggregation-20261004",
+ "archive": {
+  "path": "2026-10-04_claude_mta_cuda_r1_f10_cpu__outputs.tar.gz",
+  "sha256": "C4B293719E5EA3CB4F757377A1BD221B38C9CF023887FBA5AA5B9C4466A971BB",
+  "bytes": 68130
+ },
+ "receipt": {
+  "path": "2026-10-04_claude_mta_cuda_r1_f10_cpu__TRANSFER_RECEIPT_outputs.json",
+  "sha256": "E4A2C0CCEB8E74E86CFE274AD42B50B3F71F4A0CE10C55E368728EE68A2A1A81",
+  "written_at_utc": "2026-10-03T21:53:51Z",
+  "direction": "mta-cuda->local"
+ },
+ "checks": {
+  "archive_sha256_equals_receipt": true,
+  "member_set_equal": true,
+  "file_members": 215,
+  "member_bytes_and_sha256_equal": true
+ },
+ "negative_controls_rejected": {
+  "receipt_archive_sha_tampered": true,
+  "receipt_member_removed": true,
+  "receipt_member_added": true,
+  "receipt_member_hash_tampered": true
+ },
+ "administrative_members": [
+  "2026-10-04_claude_mta_cuda_r1_f10_cpu/logs/op8_controller.log",
+  "2026-10-04_claude_mta_cuda_r1_f10_cpu/logs/op8_controller.pid",
+  "2026-10-04_claude_mta_cuda_r1_f10_cpu/logs/op8_controller_mta.sh",
+  "2026-10-04_claude_mta_cuda_r1_f10_cpu/logs/runner.log",
+  "2026-10-04_claude_mta_cuda_r1_f10_cpu/workers/environment_w0.json",
+  "2026-10-04_claude_mta_cuda_r1_f10_cpu/workers/heartbeat_w0.json",
+  "2026-10-04_claude_mta_cuda_r1_f10_cpu/workers/heartbeat_w0.jsonl",
+  "2026-10-04_claude_mta_cuda_r1_f10_cpu/workers/terminal_status_w0.json"
+ ],
+ "administrative_changes": [],
+ "administrative_changes_note": "archive kept compressed and verified in place; nothing was extracted or edited locally",
+ "invariants_from_receipt": {
+  "result_json_files": 51,
+  "unit_dirs": 51
+ },
+ "problems": [],
+ "metrics_read": false
+}

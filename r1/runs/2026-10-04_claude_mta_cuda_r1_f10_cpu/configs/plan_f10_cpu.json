@@ -1,0 +1,1435 @@
+{
+  "schema_version": 1,
+  "run_id": "2026-10-04_claude_mta_cuda_r1_f10_cpu",
+  "family": "f10_cpu",
+  "protocol": "MD/09_audit_revision/R1_EVIDENCE_PROTOCOL.md",
+  "base": {
+    "epochs": 30,
+    "batch_size": 256,
+    "lr": 0.001,
+    "val_fraction": 0.1,
+    "soma_units": 128,
+    "branches_per_soma": 4,
+    "sample_size": 16,
+    "patch_h": 4,
+    "patch_w": 4
+  },
+  "units": [
+    {
+      "unit_id": "cpu_fashion_full__dann_lrf__s00",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "dann_lrf",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__naive_branch__s00",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "naive_branch",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__mlp_param__s00",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "mlp_param",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__vann_same__s00",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "vann_same",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__compact_cnn__s00",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "compact_cnn",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "compact_cnn"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__lc_net__s00",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "lc_net",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "lc_net"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__sparse_mlp__s00",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "sparse_mlp",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "sparse_mlp"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__cnn_flat__s00",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "cnn_flat",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "cnn_flat"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__dann_lrf__s00",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "dann_lrf",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__naive_branch__s00",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "naive_branch",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__mlp_param__s00",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "mlp_param",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__vann_same__s00",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "vann_same",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__compact_cnn__s00",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "compact_cnn",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "compact_cnn"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__lc_net__s00",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "lc_net",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "lc_net"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__sparse_mlp__s00",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "sparse_mlp",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "sparse_mlp"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__cnn_flat__s00",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "cnn_flat",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "cnn_flat"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__mlp_matched__s00",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "mlp_matched",
+      "seed": 0,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "widths": [
+          3,
+          100
+        ],
+        "r1_model": "mlp_matched"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__dann_lrf__s01",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "dann_lrf",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__naive_branch__s01",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "naive_branch",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__mlp_param__s01",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "mlp_param",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__vann_same__s01",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "vann_same",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__compact_cnn__s01",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "compact_cnn",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "compact_cnn"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__lc_net__s01",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "lc_net",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "lc_net"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__sparse_mlp__s01",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "sparse_mlp",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "sparse_mlp"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__cnn_flat__s01",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "cnn_flat",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "cnn_flat"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__dann_lrf__s01",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "dann_lrf",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__naive_branch__s01",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "naive_branch",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__mlp_param__s01",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "mlp_param",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__vann_same__s01",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "vann_same",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__compact_cnn__s01",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "compact_cnn",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "compact_cnn"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__lc_net__s01",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "lc_net",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "lc_net"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__sparse_mlp__s01",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "sparse_mlp",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "sparse_mlp"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__cnn_flat__s01",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "cnn_flat",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "cnn_flat"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__mlp_matched__s01",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "mlp_matched",
+      "seed": 1,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "widths": [
+          3,
+          100
+        ],
+        "r1_model": "mlp_matched"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__dann_lrf__s02",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "dann_lrf",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__naive_branch__s02",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "naive_branch",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__mlp_param__s02",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "mlp_param",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__vann_same__s02",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "vann_same",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__compact_cnn__s02",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "compact_cnn",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "compact_cnn"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__lc_net__s02",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "lc_net",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "lc_net"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__sparse_mlp__s02",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "sparse_mlp",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "sparse_mlp"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_fashion_full__cnn_flat__s02",
+      "family": "F10_timing",
+      "condition": "cpu_fashion_full",
+      "dataset": "fashionmnist",
+      "subset_fraction": 1.0,
+      "model": "cnn_flat",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "cnn_flat"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__dann_lrf__s02",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "dann_lrf",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__naive_branch__s02",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "naive_branch",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__mlp_param__s02",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "mlp_param",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__vann_same__s02",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "vann_same",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        }
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__compact_cnn__s02",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "compact_cnn",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "compact_cnn"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__lc_net__s02",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "lc_net",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "lc_net"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__sparse_mlp__s02",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "sparse_mlp",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "sparse_mlp"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__cnn_flat__s02",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "cnn_flat",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "r1_model": "cnn_flat"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    },
+    {
+      "unit_id": "cpu_cifar_full__mlp_matched__s02",
+      "family": "F10_timing",
+      "condition": "cpu_cifar_full",
+      "dataset": "cifar10",
+      "subset_fraction": 1.0,
+      "model": "mlp_matched",
+      "seed": 2,
+      "extra": {
+        "device": "cpu",
+        "timing": {
+          "warmup_epochs": 1,
+          "timed_epochs": 5,
+          "warmup_passes": 1,
+          "timed_passes": 5
+        },
+        "widths": [
+          3,
+          100
+        ],
+        "r1_model": "mlp_matched"
+      },
+      "epochs": 6,
+      "batch_size": 256,
+      "lr": 0.001,
+      "val_fraction": 0.1,
+      "soma_units": 128,
+      "branches_per_soma": 4,
+      "sample_size": 16,
+      "patch_h": 4,
+      "patch_w": 4
+    }
+  ]
+}
