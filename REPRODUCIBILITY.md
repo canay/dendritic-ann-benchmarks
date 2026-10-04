@@ -4,6 +4,14 @@ This document describes the canonical evidence path for the public DANN benchmar
 
 Repository URL: `https://github.com/canay/dendritic-ann-benchmarks`
 
+## Revised study (R1)
+
+The evidence of the revised study is under `r1/`. Its `README.md` lists the four runs (families F1 to F9 in one
+frozen run of 1,615 training runs, the exploratory spatial-head CNN arm, and the GPU and CPU timing runs), the
+statistical analysis manifest, and the commands that re-aggregate the frozen run from its public archive and
+rebuild the result tables and figures. `r1/SHA256SUMS` covers every file in that folder. The sections below
+describe the archived package of the submitted version.
+
 ## Canonical result folders
 
 The archived benchmark evidence is stored under `dann_benchmark/runs/`.

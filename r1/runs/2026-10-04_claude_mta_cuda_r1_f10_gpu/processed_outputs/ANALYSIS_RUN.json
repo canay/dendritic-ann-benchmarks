@@ -1,0 +1,37 @@
+{
+ "script": "r1/aggregate_f10.py",
+ "script_sha256": "BF7CB9B88892EF52FF8C9B2AFD0D086F5B522E0DAE51CAD6F7B09754E779C698",
+ "inputs": [
+  {
+   "device": "cuda",
+   "run_id": "2026-10-04_claude_mta_cuda_r1_f10_gpu",
+   "plan_sha256": "34BE4D0559F8901107310316FEF7EC37B439AFE050C140F808BEE45AD64FB562",
+   "identity_sha256": "558A1A8952DD6953B948DBCD97DD178F8B31B01A7205C4B6B75C777DCB433BB3",
+   "units": 51
+  },
+  {
+   "device": "cpu",
+   "run_id": "2026-10-04_claude_mta_cuda_r1_f10_cpu",
+   "plan_sha256": "94EBB4CE6CB10AA027B90B393C04A9417915912E4A47E5C00FD8A42F0CCBCA12",
+   "identity_sha256": "5EC708F5C2B964EC2AE49017F562707F54730874A19FC70E4CAA8831EC427985",
+   "units": 51
+  }
+ ],
+ "units": 102,
+ "cells": 34,
+ "metric_names": {
+  "train_s_per_epoch": "F10: train seconds per epoch",
+  "inference_ms_per_1000": "F10: inference ms per 1,000 images",
+  "train_images_per_s": "F10: throughput images/s",
+  "inference_images_per_s": "F10: throughput images/s",
+  "peak_cuda": "F10: peak CUDA memory",
+  "host_peak_rss": "F10: host peak RSS"
+ },
+ "data_tensors_identical_across_units_and_devices": true,
+ "one_environment_per_device": true,
+ "versions": {
+  "python": "3.12.12",
+  "numpy": "2.3.5",
+  "scipy": "1.18.0"
+ }
+}

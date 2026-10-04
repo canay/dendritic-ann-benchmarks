@@ -1,0 +1,60 @@
+{
+ "run_id": "2026-10-03_claude_mta_cuda_r1_frozen",
+ "status": "verified",
+ "freeze_id": "NEURO-R1-FREEZE-001",
+ "basis": {
+  "workers": [
+   {
+    "worker": 0,
+    "status": "COMPLETED",
+    "exit_code": 0,
+    "completed": 808,
+    "ended_at_utc": "2026-10-03T18:35:24Z"
+   },
+   {
+    "worker": 1,
+    "status": "COMPLETED",
+    "exit_code": 0,
+    "completed": 807,
+    "ended_at_utc": "2026-10-03T18:35:13Z"
+   }
+  ],
+  "identity_checked_verify": "1615/1615 on mta-cuda before the archive was written",
+  "delivery_verification": {
+   "verdict": "PASS",
+   "archive_sha256": "95F82D1AD21823E25F93F5C4C00D62D2BFA850F694C7727FB579C8E7E6AEA971",
+   "negative_controls_rejected": {
+    "receipt_archive_sha_tampered": true,
+    "receipt_member_removed": true,
+    "receipt_member_added": true,
+    "receipt_member_hash_tampered": true
+   }
+  },
+  "unit_table_rows": 1615
+ },
+ "f10_runs_under_this_freeze": {
+  "2026-10-04_claude_mta_cuda_r1_f10_gpu": {
+   "terminal": "COMPLETED/0",
+   "completed": 51,
+   "delivery_verification": "PASS",
+   "archive_sha256": "1C8052879553655C85707A676B57342D371157C4006069BCEF32D05683023F8C"
+  },
+  "2026-10-04_claude_mta_cuda_r1_f10_cpu": {
+   "terminal": "COMPLETED/0",
+   "completed": 51,
+   "delivery_verification": "PASS",
+   "archive_sha256": "C4B293719E5EA3CB4F757377A1BD221B38C9CF023887FBA5AA5B9C4466A971BB"
+  }
+ },
+ "written_at_local": "2026-10-04 00:55 +03:00",
+ "tool": "Cowork-Claude",
+ "model": "claude-opus-5-5 (max)",
+ "operation_id": "neucom-r1-f10-cnnarm-delivery-aggregation-20261004",
+ "derived_from": [
+  "experiments/2026-10-03_claude_mta_cuda_r1_frozen/logs/workers__terminal_status_w0.json",
+  "experiments/2026-10-03_claude_mta_cuda_r1_frozen/logs/workers__terminal_status_w1.json",
+  "experiments/2026-10-03_claude_mta_cuda_r1_frozen/raw_outputs/DELIVERY_VERIFICATION.json",
+  "experiments/2026-10-04_claude_mta_cuda_r1_f10_gpu/raw_outputs/DELIVERY_VERIFICATION.json",
+  "experiments/2026-10-04_claude_mta_cuda_r1_f10_cpu/raw_outputs/DELIVERY_VERIFICATION.json"
+ ]
+}

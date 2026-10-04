@@ -1,0 +1,56 @@
+{
+ "compared": "frozen reference means vs summary_by_cell; arm means/CIs and paired means/CIs/d_z recomputed from the raw archives",
+ "paired_file_present": true,
+ "problems": [],
+ "recomputed_paired": [
+  {
+   "dataset": "fashionmnist",
+   "reference": "dann_lrf",
+   "mean_diff_pp": 2.8460000000000005,
+   "ci95_low_pp": 2.7010000000000005,
+   "ci95_high_pp": 2.9825,
+   "d_z": 8.475661031419616
+  },
+  {
+   "dataset": "fashionmnist",
+   "reference": "compact_cnn",
+   "mean_diff_pp": 9.0645,
+   "ci95_low_pp": 8.817,
+   "ci95_high_pp": 9.3035,
+   "d_z": 15.92639144416163
+  },
+  {
+   "dataset": "kmnist",
+   "reference": "dann_lrf",
+   "mean_diff_pp": 10.1235,
+   "ci95_low_pp": 9.885,
+   "ci95_high_pp": 10.384000000000002,
+   "d_z": 17.22271179473752
+  },
+  {
+   "dataset": "kmnist",
+   "reference": "compact_cnn",
+   "mean_diff_pp": 29.064,
+   "ci95_low_pp": 28.346,
+   "ci95_high_pp": 29.771525,
+   "d_z": 17.453668165606985
+  },
+  {
+   "dataset": "cifar10",
+   "reference": "dann_lrf",
+   "mean_diff_pp": 12.919000000000002,
+   "ci95_low_pp": 12.421,
+   "ci95_high_pp": 13.3790125,
+   "d_z": 11.662306463165434
+  },
+  {
+   "dataset": "cifar10",
+   "reference": "compact_cnn",
+   "mean_diff_pp": 12.447,
+   "ci95_low_pp": 11.880987499999998,
+   "ci95_high_pp": 12.965,
+   "d_z": 9.881484111818551
+  }
+ ],
+ "verdict": "PASS"
+}

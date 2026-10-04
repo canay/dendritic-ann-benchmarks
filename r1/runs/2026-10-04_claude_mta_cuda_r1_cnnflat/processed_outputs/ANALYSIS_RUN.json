@@ -1,0 +1,25 @@
+{
+ "script": "r1/aggregate_cnn_arm.py",
+ "script_sha256": "A96C3F8AA8506CDBB365DAE4C0F51107CEA02672830D4BE641C9D3517BB367F7",
+ "statistics_source": "r1/aggregate_r1.py int_stats (test=False)",
+ "statistics_source_sha256": "301AA589613520E77684659160D49B33C0F1A0E045A54648554B48A202651610",
+ "arm_plan_sha256": "1801381C9C2210061CE4A63E6159E93F64A9225FAF906108152D107A0249A4AE",
+ "arm_identity_sha256": "564CD42825BD3E2E05A23C661F4F54C958932F51CE9A38151FBAFB54F808880A",
+ "frozen_plan_sha256": "DA9CD235A79D9EE5B59CB8E26F9F3F7138BE56F36A832F8235C5FE5503FD007D",
+ "frozen_archive_sha256": "95F82D1AD21823E25F93F5C4C00D62D2BFA850F694C7727FB579C8E7E6AEA971",
+ "frozen_identity_sha256": "F2BE64065A3CAE8DFB090431FAB43EE14B8FDE3713D157782D78C5BC6C514AFD",
+ "arm_units": 66,
+ "frozen_units": 120,
+ "anchors_pass": true,
+ "paired_contrasts": 6,
+ "versions": {
+  "python": "3.12.12",
+  "numpy": "2.3.5",
+  "scipy": "1.18.0"
+ },
+ "versions_match_pinned": true,
+ "seeds": {
+  "paired": "20261004 + k",
+  "arm_mean": "20261004100 + k"
+ }
+}

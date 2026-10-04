@@ -1,0 +1,40 @@
+{
+ "cuda": [
+  {
+   "cpu_affinity": [
+    2,
+    4
+   ],
+   "cpu_model": "Intel(R) Core(TM) i7-14700",
+   "cudnn": 92000,
+   "deterministic_algorithms": true,
+   "gpu": "NVIDIA GeForce RTX 5060",
+   "hostname": "<experiment-host>",
+   "python": "3.12.3",
+   "threads_arg": 2,
+   "torch": "2.13.0+cu130",
+   "torch_cuda": "13.0",
+   "torch_num_threads": 2,
+   "torchvision": "0.28.0+cu130"
+  }
+ ],
+ "cpu": [
+  {
+   "cpu_affinity": [
+    2,
+    4
+   ],
+   "cpu_model": "Intel(R) Core(TM) i7-14700",
+   "cudnn": 92000,
+   "deterministic_algorithms": true,
+   "gpu": null,
+   "hostname": "<experiment-host>",
+   "python": "3.12.3",
+   "threads_arg": 2,
+   "torch": "2.13.0+cu130",
+   "torch_cuda": "13.0",
+   "torch_num_threads": 2,
+   "torchvision": "0.28.0+cu130"
+  }
+ ]
+}
