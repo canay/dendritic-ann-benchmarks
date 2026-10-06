@@ -1,0 +1,153 @@
+{
+ "schema_version": 1,
+ "method": "independent re-derivation from raw histories (arm and frozen archive); exact Wilcoxon by DP; own Holm, labels, bootstrap, cells, budget agreement and change, prefix comparison; no code shared with the analysis",
+ "script_sha256": "981D380AC7578BE155DC41769E6D3A246DDFDB06F3C298077DDCF588EAD5555B",
+ "units": 240,
+ "contrasts": 9,
+ "cells": 12,
+ "prefix_byte_equal": 240,
+ "composites": {
+  "RQ2_robustness_e100": "robust",
+  "budget_agreement": "budget_dependent",
+  "prefix_gate": "pass",
+  "RQ2_robustness_frozen30": "robust"
+ },
+ "frozen_labels_rebuilt_equal_file": true,
+ "label_tally": {
+  "supported": 8,
+  "not_supported": 1
+ },
+ "differing_between_budgets": [
+  "F1e100:kmnist_full_e100:dann_lrf-dann_random"
+ ],
+ "disagreements": [],
+ "verdict": "PASS",
+ "rows": {
+  "F1e100:fashion_full_e100:dann_lrf-mlp_param": {
+   "label": "supported",
+   "frozen30_label": "supported",
+   "method": "approx",
+   "mean_pp": 2.1915,
+   "ci95_pp": [
+    2.0555,
+    2.332
+   ],
+   "p": 8.844915021211923e-05,
+   "p_holm": 0.000176647717261626,
+   "d_z": 6.780036054276184,
+   "budget_change_pp": 0.486
+  },
+  "F1e100:fashion_full_e100:dann_lrf-naive_branch": {
+   "label": "supported",
+   "frozen30_label": "supported",
+   "method": "exact",
+   "mean_pp": 0.589,
+   "ci95_pp": [
+    0.4559875,
+    0.7205
+   ],
+   "p": 3.814697265625e-06,
+   "p_holm": 1.1444091796875e-05,
+   "d_z": 1.917363133653988,
+   "budget_change_pp": 0.047
+  },
+  "F1e100:fashion_full_e100:dann_lrf-dann_random": {
+   "label": "supported",
+   "frozen30_label": "supported",
+   "method": "approx",
+   "mean_pp": 0.8905,
+   "ci95_pp": [
+    0.788,
+    0.9950124999999999
+   ],
+   "p": 8.8323858630813e-05,
+   "p_holm": 0.000176647717261626,
+   "d_z": 3.622611917325646,
+   "budget_change_pp": 0.3575
+  },
+  "F1e100:kmnist_full_e100:dann_lrf-mlp_param": {
+   "label": "supported",
+   "frozen30_label": "supported",
+   "method": "approx",
+   "mean_pp": 5.7815,
+   "ci95_pp": [
+    5.412000000000001,
+    6.122999999999999
+   ],
+   "p": 8.844915021211923e-05,
+   "p_holm": 0.0002653474506363577,
+   "d_z": 6.8819540230062435,
+   "budget_change_pp": 1.1135
+  },
+  "F1e100:kmnist_full_e100:dann_lrf-naive_branch": {
+   "label": "not_supported",
+   "frozen30_label": "not_supported",
+   "method": "approx",
+   "mean_pp": 0.2325,
+   "ci95_pp": [
+    -0.0395,
+    0.5045
+   ],
+   "p": 0.0892761124692408,
+   "p_holm": 0.0892761124692408,
+   "d_z": 0.367132629180984,
+   "budget_change_pp": 0.0305
+  },
+  "F1e100:kmnist_full_e100:dann_lrf-dann_random": {
+   "label": "supported",
+   "frozen30_label": "not_supported",
+   "method": "approx",
+   "mean_pp": 0.364,
+   "ci95_pp": [
+    0.1019875,
+    0.625
+   ],
+   "p": 0.022756906859556166,
+   "p_holm": 0.04551381371911233,
+   "d_z": 0.5871578760071283,
+   "budget_change_pp": 0.527
+  },
+  "F1e100:cifar_full_e100:dann_lrf-mlp_param": {
+   "label": "supported",
+   "frozen30_label": "supported",
+   "method": "approx",
+   "mean_pp": 18.4635,
+   "ci95_pp": [
+    18.0149875,
+    18.9910125
+   ],
+   "p": 8.80736803527553e-05,
+   "p_holm": 8.80736803527553e-05,
+   "d_z": 15.754576384044089,
+   "budget_change_pp": 1.3415
+  },
+  "F1e100:cifar_full_e100:dann_lrf-naive_branch": {
+   "label": "supported",
+   "frozen30_label": "supported",
+   "method": "exact",
+   "mean_pp": 1.4955000000000003,
+   "ci95_pp": [
+    1.2535,
+    1.7625
+   ],
+   "p": 1.9073486328125e-06,
+   "p_holm": 5.7220458984375e-06,
+   "d_z": 2.4712932475798275,
+   "budget_change_pp": 0.2475
+  },
+  "F1e100:cifar_full_e100:dann_lrf-dann_random": {
+   "label": "supported",
+   "frozen30_label": "supported",
+   "method": "exact",
+   "mean_pp": 2.1285,
+   "ci95_pp": [
+    1.8335,
+    2.4390124999999996
+   ],
+   "p": 1.9073486328125e-06,
+   "p_holm": 5.7220458984375e-06,
+   "d_z": 2.963592404079153,
+   "budget_change_pp": 0.7115000000000001
+  }
+ }
+}

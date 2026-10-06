@@ -1,0 +1,54 @@
+{
+ "schema_version": 1,
+ "verdict": "PASS",
+ "run_id": "2026-10-04_claude_mta_cuda_r1_tierd",
+ "verified_at_local": "2026-10-05 15:22 +0300",
+ "verified_at_utc": "2026-10-05T12:22:28Z",
+ "tool": "Cowork-Claude",
+ "model": "claude-opus-5-5 (max)",
+ "operation_id": "neucom-r1-tierd-delivery-analysis-20261005",
+ "archive": {
+  "path": "2026-10-04_claude_mta_cuda_r1_tierd__outputs.tar.gz",
+  "sha256": "6361AF506660DD8BF9A4FF3341B48574BF96448FCC476B56271E6DC7A392A404",
+  "bytes": 1512457
+ },
+ "receipt": {
+  "path": "2026-10-04_claude_mta_cuda_r1_tierd__TRANSFER_RECEIPT_outputs.json",
+  "sha256": "B021C01CD800EB4D72854A1692B03D5BE75938F94740637CA52EB097C1F2119A",
+  "written_at_utc": "2026-10-05T12:21:50Z",
+  "direction": "mta-cuda->local"
+ },
+ "checks": {
+  "archive_sha256_equals_receipt": true,
+  "member_set_equal": true,
+  "file_members": 1361,
+  "member_bytes_and_sha256_equal": true
+ },
+ "negative_controls_rejected": {
+  "receipt_archive_sha_tampered": true,
+  "receipt_member_removed": true,
+  "receipt_member_added": true,
+  "receipt_member_hash_tampered": true
+ },
+ "administrative_members": [
+  "2026-10-04_claude_mta_cuda_r1_tierd/LAUNCHED",
+  "2026-10-04_claude_mta_cuda_r1_tierd/logs/worker_w0.log",
+  "2026-10-04_claude_mta_cuda_r1_tierd/logs/worker_w1.log",
+  "2026-10-04_claude_mta_cuda_r1_tierd/workers/environment_w0.json",
+  "2026-10-04_claude_mta_cuda_r1_tierd/workers/environment_w1.json",
+  "2026-10-04_claude_mta_cuda_r1_tierd/workers/heartbeat_w0.json",
+  "2026-10-04_claude_mta_cuda_r1_tierd/workers/heartbeat_w0.jsonl",
+  "2026-10-04_claude_mta_cuda_r1_tierd/workers/heartbeat_w1.json",
+  "2026-10-04_claude_mta_cuda_r1_tierd/workers/heartbeat_w1.jsonl",
+  "2026-10-04_claude_mta_cuda_r1_tierd/workers/terminal_status_w0.json",
+  "2026-10-04_claude_mta_cuda_r1_tierd/workers/terminal_status_w1.json"
+ ],
+ "administrative_changes": [],
+ "administrative_changes_note": "archive kept compressed and verified in place; nothing was extracted or edited locally",
+ "invariants_from_receipt": {
+  "result_json_files": 449,
+  "unit_dirs": 449
+ },
+ "problems": [],
+ "metrics_read": false
+}

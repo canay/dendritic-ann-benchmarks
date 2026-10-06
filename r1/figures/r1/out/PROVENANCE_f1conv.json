@@ -1,0 +1,67 @@
+{
+ "generated_at": "2026-10-05T21:22:57+03:00",
+ "script": {
+  "path": "figures/r1/build_f1conv_assets.py",
+  "sha256": "93AA7F57A3A87FB0399FD5054A889D672E111B372EA1D8C34FF44BD91C77814F"
+ },
+ "python": "3.12.12",
+ "libraries": {
+  "pandas": "2.3.3"
+ },
+ "inputs": [
+  {
+   "path": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/verification/independent_recompute.json",
+   "sha256": "3276351D8E98100BAD1A87A8391B15658EB8B349C4985AF294A7E8FA9BCC4F49"
+  },
+  {
+   "path": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/processed_outputs/ANALYSIS_RUN.json",
+   "sha256": "33AE5AE12B2AA308F5146DA37F91C14C8621F9EFD7DB486D441821454C63C8A1"
+  },
+  {
+   "path": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/processed_outputs/summary_by_cell.csv",
+   "sha256": "D058B589208066BD3F2542746746A6DFDD5F638F75FA74B18CDFC2F80AF0F1A0"
+  },
+  {
+   "path": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/processed_outputs/decision_inputs.csv",
+   "sha256": "68E87719CDE281E433C6765B6BC8F01BEBA718FCCE8582004A965BF6127FBD67"
+  },
+  {
+   "path": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/processed_outputs/contrasts.csv",
+   "sha256": "D45E6A0BDEDC7CC06C9ABF20DF459ADA167E315E20BECE2F9E63A95050C2EA5B"
+  },
+  {
+   "path": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/processed_outputs/budget_agreement.csv",
+   "sha256": "242BBFD8F1FB93930EE0486F8267B66ECE872024078748F6FC40DAE37E5FF3FF"
+  },
+  {
+   "path": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/processed_outputs/budget_change.csv",
+   "sha256": "2B47EF79E00F8278BEE3190F0146E5A4AD4C1D3790C3EF203AA1B1B70455621E"
+  },
+  {
+   "path": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/processed_outputs/composite_decisions.csv",
+   "sha256": "8DC6D4D21EBBC3E1DE3AB10D68EF22EA32192B98074CE6FB013EA372D55147B3"
+  },
+  {
+   "path": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/processed_outputs/unit_table.csv",
+   "sha256": "C8BAA30C33EDD288118EECBE35093D291E8703F0FE2461D5A6CF6F36D6019E7C"
+  },
+  {
+   "path": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/processed_outputs/prefix_gate.csv",
+   "sha256": "D60AFC735593C503B82959865D35D6F9F4BB92D0918EBFB5BE383A05AF550C7C"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "figures/r1/out/table5_f1conv_block.tex",
+   "sha256": "926CCE1CC33E27A24B4F34DAA074CACBBBAFFC6014750C8A333E34ECC3E512B4"
+  },
+  {
+   "path": "figures/r1/out/table3_f1conv_row.tex",
+   "sha256": "A8BDAAB85F3E96A9C3FB079DA312B7BEBA097D01AE07D1352278A28D62B29541"
+  },
+  {
+   "path": "figures/r1/out/f1conv_text_numbers.json",
+   "sha256": "642A1286AE036A138D4B5C7902EF1163A88FCD504870013E5D8BF422F8B4815E"
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+  "r1/aggregate_f1conv.py": {
+    "bytes": 40490,
+    "sha256": "DC7BA283041C44B297697788C1D41BCAF9514EFF46304F2008F513DE37B6B7CC",
+    "role": "analysis script bound before the results (RUN_MANIFEST.json, analysis_bound_before_results); added to the v7 snapshot, which the run executed unchanged"
+  }
+}
