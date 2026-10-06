@@ -17,9 +17,11 @@ the table in `analysis/`.
 | `runs/2026-10-04_claude_mta_cuda_r1_cnnflat/` | Exploratory spatial-head CNN arm: 60 runs plus 6 repeats of frozen runs |
 | `runs/2026-10-04_claude_mta_cuda_r1_f10_gpu/` | F10 timing on the GPU (51 measurement units); its `processed_outputs/` hold the combined CPU and GPU timing analysis |
 | `runs/2026-10-04_claude_mta_cuda_r1_f10_cpu/` | F10 timing on the CPU (51 measurement units) |
+| `runs/2026-10-04_claude_mta_cuda_r1_tierd/` | Extension: the minimal Transformer front end with three heads (D1) and flattened CIFAR-100 (D2), each at the 30-epoch protocol and in a 100-epoch budget arm: 449 training runs, 9 of them repeats of frozen runs |
+| `runs/2026-10-05_claude_mta_cuda_r1_f1conv/` | Budget arm A18: the full-data F1 contrasts of DANN-LRF, Naive-Branch, MLP-Param and DANN-RANDOM continued to 100 epochs, 240 training runs whose first 30 epochs reproduce the stored histories of the frozen run |
 | `analysis/R1_ANALYSIS_MANIFEST.json` | Statistical analysis manifest (primary metric, tests, bootstrap, effect sizes, Holm groups, decision labels, replication rule) |
 | `analysis/r0_paired_tests_validation_selected.csv` | Paired-test table of the submitted analysis, read by the replication check |
-| `figures/r1/` | `build_r1_assets.py` (result tables and result figures) and `verify_r1_assets.py` (independent re-check), with the generated figure data, fit diagnostics, figure PDFs and `PROVENANCE.json` in `out/` |
+| `figures/r1/` | `build_r1_assets.py` (result tables and result figures) and `verify_r1_assets.py` (independent re-check), with the generated figure data, fit diagnostics, figure PDFs and `PROVENANCE.json` in `out/`; `build_tierd_assets.py` and `verify_tierd_assets.py` (extension table) and `build_f1conv_assets.py` and `verify_f1conv_assets.py` (budget-arm block of the contrast table), with their text numbers and provenance in `out/` |
 | `PUBLIC_FILE_PROVENANCE.csv` | Source path and SHA-256 of every file before and after the privacy edits described below |
 | `SHA256SUMS` | Checksums of every file in this folder (`sha256sum -c SHA256SUMS` from inside `r1/`) |
 
@@ -33,9 +35,12 @@ Each run folder contains:
 - `raw_outputs/`: a public archive of the per-unit outputs (`*__public_outputs.tar.gz`), a member list with
   checksums (`*__public_outputs_MEMBERS.csv`) and the delivery verification record of the original archive.
 
-The two code snapshots are the same apart from additions. The F10 and spatial-head CNN runs add `r1/f10_timing.py`,
+The code snapshots differ only by additions. The F10 and spatial-head CNN runs add `r1/f10_timing.py`,
 `r1/f10_macs.py` and `r1/check_f10.py`, and extend `r1/r1_models.py` and `r1/r1_plan.py`. All other files are
-byte-identical to the snapshot of the frozen run.
+byte-identical to the snapshot of the frozen run. The extension and the budget arm ran a third snapshot, which adds
+`r1/aggregate_tierd.py` and `r1/check_tierd.py` and extends `r1/r1_data.py`, `r1/r1_models.py` and `r1/r1_plan.py` for the
+Transformer front end and CIFAR-100. The budget arm executed it unchanged; its `src/` also holds `r1/aggregate_f1conv.py`,
+the analysis fixed before its results, which `src/ANALYSIS_ADDITIONS.json` lists and `src/CODE_MANIFEST.json` does not.
 
 ## Public archives
 
@@ -43,7 +48,8 @@ The public archives keep, with their original member paths, `IDENTITY.json`, `co
 and terminal-status records, every unit's `result.json`, and every per-epoch `history.csv` (accuracy runs) or
 `progress.json` (timing runs). Heartbeat streams, process logs, launch markers, duplicate `attempt.json` copies and
 stderr logs are left out. Every `history.csv` is byte-identical to the delivered member. The member lists give the
-SHA-256 of each public member and of the delivered member.
+SHA-256 of each public member and of the delivered member. The archives of the extension and the budget arm follow the
+same rules.
 
 ## Privacy edits
 
@@ -64,6 +70,9 @@ member lists. The public copies of `build_r1_assets.py` and `verify_r1_assets.py
 - the frozen archive name points to `*__public_outputs.tar.gz`;
 - the fonts are read from `$R1_FONT_DIR` (default `r1/fonts/`) as `IBMPlexSans-SemiBold.ttf` and `Barlow-Regular.ttf`;
 - the PNG figure carriers are written to `figures/r1/out/` next to the PDFs.
+
+The public copies of the four table scripts of the extension and the budget arm change only the run-folder path, from
+`experiments/` to `runs/`.
 
 ## Reproducing the analysis
 
@@ -99,6 +108,28 @@ python figures/r1/verify_r1_assets.py
 The build writes the LaTeX row bodies of the result tables, the figure data and the two result figures into
 `figures/r1/out/`. On the author's machine these outputs, built from this folder, were byte-identical to the
 files used in the revised manuscript, and the verification re-read 607 values with no failure.
+
+### Extension and budget arm
+
+The processed outputs of the extension and of the budget arm were produced by `src/r1/aggregate_tierd.py` and
+`src/r1/aggregate_f1conv.py` from the delivered archives, which both scripts check against their transfer receipts; the
+delivered archives and the receipts are not part of this folder. The table rows are rebuilt from the processed outputs and
+re-checked against the per-unit histories of the public archives. Run from `r1/`:
+
+```bash
+mkdir -p work
+tar -xzf runs/2026-10-04_claude_mta_cuda_r1_tierd/raw_outputs/2026-10-04_claude_mta_cuda_r1_tierd__public_outputs.tar.gz -C work
+tar -xzf runs/2026-10-05_claude_mta_cuda_r1_f1conv/raw_outputs/2026-10-05_claude_mta_cuda_r1_f1conv__public_outputs.tar.gz -C work
+python figures/r1/build_tierd_assets.py
+python figures/r1/verify_tierd_assets.py check work/2026-10-04_claude_mta_cuda_r1_tierd
+python figures/r1/build_f1conv_assets.py
+python figures/r1/verify_f1conv_assets.py check work/2026-10-05_claude_mta_cuda_r1_f1conv
+```
+
+The build scripts need pandas (2.3.3 was used). On the author's machine the rebuilt rows and text numbers were
+byte-identical to the files used in the revised manuscript, and the two verifications re-read 604 and 422 values with no
+failure. The `verification/` folder of each run holds the independent recomputation of every label from the per-unit
+histories.
 
 Re-running a training plan needs the datasets described in `dann_benchmark/DATASETS.md`. Every `result.json`
 records SHA-256 hashes of the training and test tensors (`data_hashes`), so a re-run can be checked against the same

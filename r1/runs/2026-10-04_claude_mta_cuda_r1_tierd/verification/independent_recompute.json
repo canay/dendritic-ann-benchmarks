@@ -1,0 +1,196 @@
+{
+ "schema_version": 1,
+ "method": "independent re-derivation from raw histories; exact Wilcoxon by DP; own Holm, labels, bootstrap, cells, composites and anchor comparison; no code shared with the analysis",
+ "script_sha256": "594962AF75BF324F5C83327064D7ACF759D52FC90C6093AC352081FA32A7F453",
+ "units": 449,
+ "contrasts": 14,
+ "cells": 22,
+ "anchors_byte_equal": 9,
+ "composites": {
+  "D1_transfer": "not_observed",
+  "D1_transfer_e100": "not_observed",
+  "D2_increment": "not_supported",
+  "D2_increment_e100": "supported",
+  "budget_agreement": "budget_dependent"
+ },
+ "label_tally": {
+  "not_supported": 3,
+  "reverse": 6,
+  "supported": 5
+ },
+ "differing_between_budgets": [
+  "D2_e100:cifar100_full_e100:dann_lrf-naive_branch"
+ ],
+ "disagreements": [],
+ "verdict": "PASS",
+ "rows": {
+  "D1:fashion_full:tf_stem_dann_lrf-tf_stem_naive_branch": {
+   "label": "not_supported",
+   "method": "approx",
+   "mean_pp": -0.1405,
+   "ci95_pp": [
+    -0.3085,
+    0.0335
+   ],
+   "p": 0.13522074476824386,
+   "p_holm": 0.13522074476824386,
+   "d_z": -0.3480310030473662
+  },
+  "D1:fashion_full:tf_stem_dann_lrf-tf_stem_mlp": {
+   "label": "reverse",
+   "method": "approx",
+   "mean_pp": -0.488,
+   "ci95_pp": [
+    -0.6345125,
+    -0.336
+   ],
+   "p": 0.00025296515921125574,
+   "p_holm": 0.0007588954776337673,
+   "d_z": -1.3894526757232553
+  },
+  "D1:cifar_full:tf_stem_dann_lrf-tf_stem_naive_branch": {
+   "label": "reverse",
+   "method": "approx",
+   "mean_pp": -0.601,
+   "ci95_pp": [
+    -0.9005125,
+    -0.28348750000000017
+   ],
+   "p": 0.00249283595518629,
+   "p_holm": 0.00498567191037258,
+   "d_z": -0.8323098093413063
+  },
+  "D1:cifar_full:tf_stem_dann_lrf-tf_stem_mlp": {
+   "label": "reverse",
+   "method": "exact",
+   "mean_pp": -2.392,
+   "ci95_pp": [
+    -2.6780125000000004,
+    -2.102
+   ],
+   "p": 1.9073486328125e-06,
+   "p_holm": 7.62939453125e-06,
+   "d_z": -3.5286046102163406
+  },
+  "D2:cifar100_full:dann_lrf-naive_branch": {
+   "label": "not_supported",
+   "method": "exact",
+   "mean_pp": 0.167,
+   "ci95_pp": [
+    -0.045,
+    0.397
+   ],
+   "p": 0.20244979858398438,
+   "p_holm": 0.20244979858398438,
+   "d_z": 0.3215665845216168
+  },
+  "D2:cifar100_full:dann_lrf-mlp_param": {
+   "label": "supported",
+   "method": "approx",
+   "mean_pp": 9.97,
+   "ci95_pp": [
+    9.684,
+    10.257
+   ],
+   "p": 8.8323858630813e-05,
+   "p_holm": 0.000264971575892439,
+   "d_z": 14.805192997716563
+  },
+  "D2:cifar100_full:dann_lrf-dann_random": {
+   "label": "supported",
+   "method": "approx",
+   "mean_pp": 1.247,
+   "ci95_pp": [
+    1.059,
+    1.4480000000000002
+   ],
+   "p": 8.844915021211923e-05,
+   "p_holm": 0.000264971575892439,
+   "d_z": 2.7236971649838795
+  },
+  "D1_e100:fashion_full_e100:tf_stem_dann_lrf-tf_stem_naive_branch": {
+   "label": "not_supported",
+   "method": "approx",
+   "mean_pp": -0.122,
+   "ci95_pp": [
+    -0.3060125,
+    0.062024999999999636
+   ],
+   "p": 0.21787707790698654,
+   "p_holm": 0.21787707790698654,
+   "d_z": -0.2846208314234098
+  },
+  "D1_e100:fashion_full_e100:tf_stem_dann_lrf-tf_stem_mlp": {
+   "label": "reverse",
+   "method": "exact",
+   "mean_pp": -0.4265,
+   "ci95_pp": [
+    -0.565,
+    -0.2904875000000002
+   ],
+   "p": 1.9073486328125e-05,
+   "p_holm": 3.814697265625e-05,
+   "d_z": -1.3227027772756579
+  },
+  "D1_e100:cifar_full_e100:tf_stem_dann_lrf-tf_stem_naive_branch": {
+   "label": "reverse",
+   "method": "exact",
+   "mean_pp": -1.541,
+   "ci95_pp": [
+    -1.9455,
+    -1.1345
+   ],
+   "p": 9.5367431640625e-06,
+   "p_holm": 2.86102294921875e-05,
+   "d_z": -1.6131515905510325
+  },
+  "D1_e100:cifar_full_e100:tf_stem_dann_lrf-tf_stem_mlp": {
+   "label": "reverse",
+   "method": "exact",
+   "mean_pp": -3.0010000000000003,
+   "ci95_pp": [
+    -3.3545125,
+    -2.6124875000000003
+   ],
+   "p": 1.9073486328125e-06,
+   "p_holm": 7.62939453125e-06,
+   "d_z": -3.415223686743633
+  },
+  "D2_e100:cifar100_full_e100:dann_lrf-naive_branch": {
+   "label": "supported",
+   "method": "approx",
+   "mean_pp": 0.5525,
+   "ci95_pp": [
+    0.346,
+    0.7585
+   ],
+   "p": 0.0005927619658566602,
+   "p_holm": 0.0005927619658566602,
+   "d_z": 1.1394429869969347
+  },
+  "D2_e100:cifar100_full_e100:dann_lrf-mlp_param": {
+   "label": "supported",
+   "method": "exact",
+   "mean_pp": 10.530999999999999,
+   "ci95_pp": [
+    10.325,
+    10.739
+   ],
+   "p": 1.9073486328125e-06,
+   "p_holm": 5.7220458984375e-06,
+   "d_z": 21.308863198464856
+  },
+  "D2_e100:cifar100_full_e100:dann_lrf-dann_random": {
+   "label": "supported",
+   "method": "approx",
+   "mean_pp": 1.9015,
+   "ci95_pp": [
+    1.711475,
+    2.1030125
+   ],
+   "p": 8.844915021211923e-05,
+   "p_holm": 0.00017689830042423845,
+   "d_z": 4.143469645546963
+  }
+ }
+}

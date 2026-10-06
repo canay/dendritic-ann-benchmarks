@@ -1,0 +1,10 @@
+id,frozen_id,frozen30_outcome,outcome_100,agreement,frozen30_mean_diff_pp,mean_diff_pp_100
+F1e100:fashion_full_e100:dann_lrf-mlp_param,F1:fashion_full:dann_lrf-mlp_param,supported,supported,consistent,1.7055,2.1915
+F1e100:fashion_full_e100:dann_lrf-naive_branch,F1:fashion_full:dann_lrf-naive_branch,supported,supported,consistent,0.542,0.589
+F1e100:fashion_full_e100:dann_lrf-dann_random,F1:fashion_full:dann_lrf-dann_random,supported,supported,consistent,0.533,0.8905
+F1e100:kmnist_full_e100:dann_lrf-mlp_param,F1:kmnist_full:dann_lrf-mlp_param,supported,supported,consistent,4.668,5.7815
+F1e100:kmnist_full_e100:dann_lrf-naive_branch,F1:kmnist_full:dann_lrf-naive_branch,not_supported,not_supported,consistent,0.202,0.2325
+F1e100:kmnist_full_e100:dann_lrf-dann_random,F1:kmnist_full:dann_lrf-dann_random,not_supported,supported,budget_dependent,-0.163,0.364
+F1e100:cifar_full_e100:dann_lrf-mlp_param,F1:cifar_full:dann_lrf-mlp_param,supported,supported,consistent,17.122,18.4635
+F1e100:cifar_full_e100:dann_lrf-naive_branch,F1:cifar_full:dann_lrf-naive_branch,supported,supported,consistent,1.248,1.4955000000000003
+F1e100:cifar_full_e100:dann_lrf-dann_random,F1:cifar_full:dann_lrf-dann_random,supported,supported,consistent,1.4169999999999998,2.1285

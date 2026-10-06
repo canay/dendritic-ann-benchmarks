@@ -1,0 +1,63 @@
+{
+ "generated_at": "2026-10-05T17:16:07+03:00",
+ "script": {
+  "path": "figures/r1/build_tierd_assets.py",
+  "sha256": "2AA9B74432A8F3857B28E1D075B15F681404231769B53298AD1408ACC5890CD5"
+ },
+ "python": "3.12.12",
+ "libraries": {
+  "pandas": "2.3.3"
+ },
+ "inputs": [
+  {
+   "path": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/verification/independent_recompute.json",
+   "sha256": "97800D6D752B6C1B9984454D4895E8E5B876C8AB0DDE5D48FBFE46F4D544FA7B"
+  },
+  {
+   "path": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/processed_outputs/ANALYSIS_RUN.json",
+   "sha256": "CDAE6100F93E4C8FCAB7F1F886FAF70034898B36096C875380E1EE77B8495334"
+  },
+  {
+   "path": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/processed_outputs/summary_by_cell.csv",
+   "sha256": "28876990CA7C13E710A3E17380E89A300BCE135EC45E42BD7CCDF8CAA34353BC"
+  },
+  {
+   "path": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/processed_outputs/decision_inputs.csv",
+   "sha256": "E9FD02E35E698FDC19A66CE4387B6446787928968A9F500C148A7477B7862EBF"
+  },
+  {
+   "path": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/processed_outputs/contrasts.csv",
+   "sha256": "D9ADCD950024229FB0659870AC58119FFD5E79952EBE90EB96B7D6552EE77057"
+  },
+  {
+   "path": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/processed_outputs/composite_decisions.csv",
+   "sha256": "1B43184CE97F4FDCA25CCF8E3444E913408976808C12CA5795BC6CBEA87AC1F0"
+  },
+  {
+   "path": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/processed_outputs/anchors.csv",
+   "sha256": "A7CE6BA749C53641042F498A5767775F027EC5AD8CC89BE7DF5EFC12FC57AC2D"
+  },
+  {
+   "path": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/processed_outputs/unit_table.csv",
+   "sha256": "4AFF80E06D481CD2F77418AB0F4D62CA70975B71B634C05F17DE150E69B88E8C"
+  }
+ ],
+ "outputs": [
+  {
+   "path": "figures/r1/out/table8_tierd_accuracy.tex",
+   "sha256": "AA79E24AA2EECCCA47D49C02307DF408B0F1EC69B8BC0A598A803D5FFCF96F06"
+  },
+  {
+   "path": "figures/r1/out/table8_tierd_contrasts.tex",
+   "sha256": "26B3632C43271CD01EE3BE365CE40353D01FB4F84103E0F3A85DC42BF186E14C"
+  },
+  {
+   "path": "figures/r1/out/table3_tierd_rows.tex",
+   "sha256": "9215DE774652C96271716F3A97A99C4EA947120EAE4359E34D90AA9337FCE575"
+  },
+  {
+   "path": "figures/r1/out/tierd_text_numbers.json",
+   "sha256": "F6C6EC9DDC015224B3016510E9EDA638BDD2B21D8A9FDF162F2FA0D4778C532B"
+  }
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "script": "r1/aggregate_f1conv.py",
+ "script_sha256": "DC7BA283041C44B297697788C1D41BCAF9514EFF46304F2008F513DE37B6B7CC",
+ "statistics_source": "r1/aggregate_r1.py int_stats, holm, label",
+ "statistics_source_sha256": "301AA589613520E77684659160D49B33C0F1A0E045A54648554B48A202651610",
+ "plan_sha256": "37F966BF2938377CC6AFF43FFC57C3C7BAFE103C0A147E3E5BF019A67CD21B49",
+ "identity_sha256": "E72DBE8220933E4E73153D31C2A23C8D40B72230848A0A64D3A7D474D4F76DB0",
+ "frozen_plan_sha256": "DA9CD235A79D9EE5B59CB8E26F9F3F7138BE56F36A832F8235C5FE5503FD007D",
+ "frozen_archive_sha256": "95F82D1AD21823E25F93F5C4C00D62D2BFA850F694C7727FB579C8E7E6AEA971",
+ "frozen_identity_sha256": "F2BE64065A3CAE8DFB090431FAB43EE14B8FDE3713D157782D78C5BC6C514AFD",
+ "frozen_contrasts_sha256": "5946561FF32DACD9FB3FDF723AF8BD9069EDDCE11499FA46DD2C71E74A994C06",
+ "units": 240,
+ "data_hashes": {
+  "cifar10": {
+   "test_x": "53E7254B7FBF84FD84D2BEDBFF142DB6CD7D44C6B4C353B4836B2BD1FA851C7D",
+   "test_y": "CBB7365DE8ED11F05CC4C3A1E7F78144127C5E851EFD83762FB18202461230BB",
+   "train_x": "591697577562D9C59EF241082A0BF0FA0AC024361551FBC90F83BB600F0937F2",
+   "train_y": "F5CFE00B0F00968C0CC5FF3B1D2DE51B10E33EFA277C2986F4E0FA63E58C9F4F"
+  },
+  "fashionmnist": {
+   "test_x": "0C0F08B9D95E81A9C662A7E200CBB82A22E7669E3A79C4E861585D1DBF736EFD",
+   "test_y": "D51D859896C55775B9E9E219B77FF03BCEC1B6AC322F313544DC3F9E7BC94FAE",
+   "train_x": "C8E7985E4E6A3382C3C25C81A43502A695894FEF5D797F4C58A637801EFB1612",
+   "train_y": "E3245B63F7C40D1C8B652835F19744D970C1613B40DDAC6BCFC87B9C46E16A0B"
+  },
+  "kmnist": {
+   "test_x": "68C59D8CB6BB45875448609C7C93160AC289B28C34DEE0BB8A8F1E1CCE019CF1",
+   "test_y": "ABCFFED0A805F339618F508496981B403291F5892B2B296266954BA989E1E3BA",
+   "train_x": "54E5F889CD9F4FC7549CBFF31DCBDCECDC2A7FD22D3049BEA71DCFD3B330498F",
+   "train_y": "675A1BC99C0FB402449CFB1884E928CA83DE316CDF5EDA00AD5E1299B01F67E8"
+  }
+ },
+ "prefix_gate_pass": true,
+ "lineage": "epochs 1-30 of every 100-epoch history equal the frozen 30-epoch history row for row",
+ "contrasts": 9,
+ "contrast_bootstrap_seeds": {
+  "F1e100:fashion_full_e100:dann_lrf-mlp_param": 20261005001,
+  "F1e100:fashion_full_e100:dann_lrf-naive_branch": 20261005002,
+  "F1e100:fashion_full_e100:dann_lrf-dann_random": 20261005003,
+  "F1e100:kmnist_full_e100:dann_lrf-mlp_param": 20261005004,
+  "F1e100:kmnist_full_e100:dann_lrf-naive_branch": 20261005005,
+  "F1e100:kmnist_full_e100:dann_lrf-dann_random": 20261005006,
+  "F1e100:cifar_full_e100:dann_lrf-mlp_param": 20261005007,
+  "F1e100:cifar_full_e100:dann_lrf-naive_branch": 20261005008,
+  "F1e100:cifar_full_e100:dann_lrf-dann_random": 20261005009
+ },
+ "cell_bootstrap_seeds": {
+  "fashion_full_e100:dann_lrf": 20261005101,
+  "fashion_full_e100:naive_branch": 20261005102,
+  "fashion_full_e100:mlp_param": 20261005103,
+  "fashion_full_e100:dann_random": 20261005104,
+  "kmnist_full_e100:dann_lrf": 20261005105,
+  "kmnist_full_e100:naive_branch": 20261005106,
+  "kmnist_full_e100:mlp_param": 20261005107,
+  "kmnist_full_e100:dann_random": 20261005108,
+  "cifar_full_e100:dann_lrf": 20261005109,
+  "cifar_full_e100:naive_branch": 20261005110,
+  "cifar_full_e100:mlp_param": 20261005111,
+  "cifar_full_e100:dann_random": 20261005112
+ },
+ "change_bootstrap_seeds": {
+  "F1e100:fashion_full_e100:dann_lrf-mlp_param": 20261005201,
+  "F1e100:fashion_full_e100:dann_lrf-naive_branch": 20261005202,
+  "F1e100:fashion_full_e100:dann_lrf-dann_random": 20261005203,
+  "F1e100:kmnist_full_e100:dann_lrf-mlp_param": 20261005204,
+  "F1e100:kmnist_full_e100:dann_lrf-naive_branch": 20261005205,
+  "F1e100:kmnist_full_e100:dann_lrf-dann_random": 20261005206,
+  "F1e100:cifar_full_e100:dann_lrf-mlp_param": 20261005207,
+  "F1e100:cifar_full_e100:dann_lrf-naive_branch": 20261005208,
+  "F1e100:cifar_full_e100:dann_lrf-dann_random": 20261005209
+ },
+ "composite": {
+  "RQ2_robustness_e100": "robust",
+  "RQ2_robustness_frozen30": "robust",
+  "budget_agreement": "budget_dependent",
+  "prefix_gate": "pass"
+ },
+ "boundary": "100-epoch convergence arm of F1 (MC-NEURO-R1-004, DEC-NEURO-021), reported whatever the outcome; the frozen 30-epoch labels of NEURO-R1-FREEZE-001 stay primary; a differing 100-epoch label is worded as budget-dependent with both labels; the arm changes no frozen verdict",
+ "budget_epochs": {
+  "frozen_primary": 30,
+  "arm": 100
+ },
+ "versions": {
+  "python": "3.12.12",
+  "numpy": "2.3.5",
+  "scipy": "1.18.0"
+ },
+ "versions_match_pinned": true
+}

@@ -1,0 +1,145 @@
+{
+ "run_id": "2026-10-04_claude_mta_cuda_r1_tierd",
+ "makale_kisa_adi": "dendritic_ann_branching_controlled",
+ "operation_id": "neucom-r1-tierd-protocol-lock-20261005",
+ "methodology_change_id": "MC-NEURO-R1-003",
+ "decisions": [
+  "DEC-NEURO-019 (bounded tier D: D1 Transformer front end, D2 CIFAR-100)",
+  "DEC-NEURO-020 (30-epoch primary + 100-epoch budget-sensitivity arm; MLP-Param structural bound)"
+ ],
+ "protocol": {
+  "path": "MD/09_audit_revision/R1_EVIDENCE_PROTOCOL.md",
+  "sha256_at_lock": "a1898bdc710519735966e74084e760da6620a03724a21d42757d203351629444",
+  "locked_at": "2026-10-05T01:34:26+03:00",
+  "family": "bounded tier D extension: nine lineage anchors, D1 (Transformer front end with the three F9 heads), D2 (CIFAR-100), each at 30 epochs (primary) and at 100 epochs (A17 budget-sensitivity arm); amendments A14-A17"
+ },
+ "status": "delivered_verified (remote copy kept)",
+ "run_kind": "canonical (post-main-results extension, reported whatever the outcome; interpretation rules i-viii of protocol Section 10)",
+ "tool": "Cowork-Claude",
+ "model_or_session": "claude-opus-5-5 (max)",
+ "host_label": "mta-cuda",
+ "hostname": "<experiment-host>",
+ "local_run_folder": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/",
+ "remote_run_folder": "<remote-home>/experiments/SCI-reports_bias_dendritic_dac_package/2026-10-03/runs/2026-10-04_claude_mta_cuda_r1_tierd/",
+ "sync_status": "delivered 2026-10-05 15:22 +03:00 with a receipt written on the host before transfer; local verify_delivery PASS (1,361 members, 4/4 negative controls); archive sha256 equal by a second tool; remote copy NOT removed (guarded removal refused by the session safety classifier; base kept for MC-NEURO-R1-004)",
+ "platform_envelope": {
+  "os_family": "Linux",
+  "arch": "x86_64",
+  "python": "3.12.3"
+ },
+ "created_at_local": "2026-10-05 01:38 +03:00",
+ "working_directory": "<remote-home>/experiments/SCI-reports_bias_dendritic_dac_package/2026-10-03/code_00983a91716f",
+ "command": "nice -n 10 ionice -c2 -n7 bash r1/run_worker.sh <code_dir> <plan> <out_dir> 2026-10-04_claude_mta_cuda_r1_tierd <remote-home>/experiments/SCI-reports_bias_dendritic_dac_package/2026-10-03/data <k> 2 (k = 0, 1; R1_IDENTITY_FILE set; each worker: python3 r1/r1_runner.py run --device cuda --deterministic --threads 2 --worker-index k --num-workers 2 --heartbeat-seconds 60 --unit-timeout-seconds 1800 --max-attempts 2 --identity-file <identity>)",
+ "launcher": "env/delivery/mta_launch_tierd.sh (hash, identity, environment, code-fingerprint and resource preflight; then r1/launch_batch.sh with two workers)",
+ "script": "r1/r1_runner.py (unchanged since v4); tf_stem_* through r1/r1_models.build_r1_model; CIFAR-100 through r1/r1_data.py",
+ "config": "configs/plan_tierd_run.json (sha256 FA93DEACBC74236E4884FD59D42D1B98D36D7EDECEE3D2D62506D19E8DD52D56, 449 units: 9 anchors, D1 120 and D2 100 at 30 epochs, D1 120 and D2 100 at 100 epochs)",
+ "code_snapshot": {
+  "version": "v7",
+  "archive": "env/transfer_v7/code_snapshot.tar.gz",
+  "archive_sha256": "00983A91716F7D93955405EF69005779CDBB31B41CCD2E6C5DEB3A3C463588D6",
+  "code_fingerprint": "3F58C2F17EB944F7409AD3B7021919CB60996ABC530A77742F3BEC10E2D83BD0",
+  "base": "v6 8C2EB862FB97BC95672471579732C7275CA41554BAD9705FC0A042CDF17C399B (fingerprint 989FC382B6D69569FFF5A2A35CDC54A20AEDE91B43A351FF28DEC8D52115366B)"
+ },
+ "dataset": "FashionMNIST and CIFAR-10 (full data, D1 and anchors) and CIFAR-100 (full data, D2; staged from the project VPS copy, archive sha256 85CD44D02BA6437773C5BBD22E183051D648DE2E7D6B014E1EF29B855BA677A7)",
+ "split": "90/10 fit/validation from the training partition by the data seed; full 10,000-image test set",
+ "seed": "0-19 (anchors: seed 0)",
+ "hyperparameters": {
+  "epochs": "30 (anchors and the primary D1/D2 units); 100 (A17 arm)",
+  "batch_size": 256,
+  "lr": 0.001,
+  "val_fraction": 0.1,
+  "soma_units": 128,
+  "branches_per_soma": 4,
+  "sample_size": 16,
+  "patch_h": 4,
+  "patch_w": 4
+ },
+ "baselines_or_methods": [
+  "tf_stem_dann_lrf",
+  "tf_stem_naive_branch",
+  "tf_stem_mlp",
+  "dann_lrf",
+  "naive_branch",
+  "mlp_param (CIFAR-100: structural bound, rule vii)",
+  "dann_random",
+  "vann_same",
+  "anchors: F1 dann_lrf, naive_branch, mlp_param, dann_random, vann_same on CIFAR-10 and F9 stem heads, seed 0"
+ ],
+ "resource_limits": {
+  "workers_threads": "2 workers x 2 threads",
+  "priority": "nice -n 10, ionice -c2 -n7",
+  "projected_wall_clock": "about 4.8 h with one worker, about 3 h with two workers (from the smoke and pilot unit times)",
+  "ceiling_wall_clock": "9 h from launch (hard stop 18 h)",
+  "unit_timeout_s": 1800,
+  "rss_per_worker_ceiling_bytes": 6442450944,
+  "disk_free_floor_gb": 10,
+  "gpu": "shared with nothing else of this project"
+ },
+ "freeze_binding": {
+  "freeze_id": "MC-NEURO-R1-003 (A12 precedent: the change id is the freeze id; NEURO-R1-FREEZE-001 final and untouched)",
+  "identity_file": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/configs/IDENTITY.json",
+  "identity_sha256": "815A26B13E9A25027C1D937C24DECF73A9900B1F423C4A6D90BF995E649A2D24"
+ },
+ "analysis_bound_before_results": {
+  "aggregate_script": "dann_benchmark/r1/aggregate_tierd.py",
+  "aggregate_script_sha256": "D0481F7592EAE68CFA163FE3BC6D3E76258A9B9B8F207AA5D3E5004B6183B79C",
+  "aggregate_selftest": "103 checks, FAILED none (2026-10-05)",
+  "independent_recompute_script": "verification/independent_recompute_tierd.py",
+  "independent_recompute_sha256": "594962AF75BF324F5C83327064D7ACF759D52FC90C6093AC352081FA32A7F453",
+  "independent_recompute_test": "verification/test_independent_recompute_tierd.py (sha256 796C92D464A23F53F7B9022893E8CEF7A645D1AFFF7DB1E43966353A5E460AA6): positive control PASS, three negative controls PASS"
+ },
+ "pilots_pilot_only": [
+  "pilot/raw_outputs/tierd_pilot_20261004.tar.gz (F655D8C1ED86FE90AE78763BDB225F694DEC86C1B6BC4196AF36CE09405097CA; 30 epochs, seed 100)",
+  "pilot/raw_outputs/tierd_pilot_e100_20261005.tar.gz (7FA854470421D296A7B36618142A1A6EC7F19BF68394C08FBAC63DA963AC207B; 100 epochs, seed 100)"
+ ],
+ "manuscript_locations": [
+  "NEURO/manuscript-r1: new rows or subsection in Sections 5.2-5.4 (or supplement), Section 3 method and data, Section 6 discussion and limitations; responses to R3.3 and R3.8 (claim-level sentences shown to the author before they are applied, QL-NEURO-011)"
+ ],
+ "notes": "post-main-results extension; cannot change any NEURO-R1-FREEZE-001 verdict; the 100-epoch arm neither replaces nor rescues a 30-epoch label",
+ "environment": {
+  "os": "Ubuntu 24.04.4 LTS",
+  "shell": "bash",
+  "runtime": "Python 3.12.3 (/usr/bin/python3, user site <remote-home>/.local)",
+  "virtualenv_or_container": "none; existing user-site CUDA environment (TOOL_ENVIRONMENT.md MTA-cuda Environment rule)",
+  "libraries_or_lockfile": "torch 2.13.0+cu130, torchvision 0.28.0+cu130 (frozen environment of protocol Section 1)",
+  "cpu": "Intel i7-14700 (20C/28T)",
+  "ram": "31 GiB",
+  "gpu": "NVIDIA GeForce RTX 5060 8 GB"
+ },
+ "local_delivery_and_verification_rule": "pack with a receipt on the host (pack_with_receipt.sh), scp, r1/verify_delivery.py with negative controls and a second hash tool, then remove_packed.sh; after the delivery the whole remote base of this project is removed (author instruction 2026-10-04)",
+ "started_at_local": "2026-10-05 01:39:01 +03:00",
+ "launched_at_utc": "2026-10-04T22:39:01Z",
+ "launch_record": "LAUNCHED on the host: two workers (supervisor pids 359022, 359023), identity sha256 815a26b1..., plan sha256 fa93deac...; preflight PASS (identity, environment, code fingerprint, disk 23 GB free, memory 25 GB available, no foreign GPU process)",
+ "ended_at_utc": "2026-10-05T02:08:41Z",
+ "delivery": {
+  "operation_id": "neucom-r1-tierd-delivery-analysis-20261005",
+  "host_verify": "identity-checked r1_runner.py verify 449/449 (mta_deliver_prep_v2.sh, sha256 acdbf9a3...)",
+  "terminal": "worker 0 COMPLETED/0 at 2026-10-05T02:08:29Z (225 units); worker 1 COMPLETED/0 at 02:08:41Z (224 units)",
+  "archive": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/raw_outputs/2026-10-04_claude_mta_cuda_r1_tierd__outputs.tar.gz",
+  "archive_sha256": "6361AF506660DD8BF9A4FF3341B48574BF96448FCC476B56271E6DC7A392A404",
+  "archive_bytes": 1512457,
+  "file_members": 1361,
+  "receipt": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/raw_outputs/2026-10-04_claude_mta_cuda_r1_tierd__TRANSFER_RECEIPT_outputs.json",
+  "local_verification": "r1/verify_delivery.py PASS, 4/4 negative controls; archive sha256 equal by PowerShell Get-FileHash",
+  "remote_copy": "kept (guarded removal refused by the session safety classifier on 2026-10-05; base needed for MC-NEURO-R1-004)",
+  "peak_rss_bytes": {
+   "w0": 4185260032,
+   "w1": 4158222336
+  }
+ },
+ "analysis": {
+  "operation_id": "neucom-r1-tierd-delivery-analysis-20261005",
+  "aggregate": "r1/aggregate_tierd.py analyse, sha256 D0481F7592EAE68C... (equal to analysis_bound_before_results), exit 0",
+  "environment": "Python 3.12.12, NumPy 2.3.5, SciPy 1.18.0 (pinned versions; isolated venv outside the synchronized tree)",
+  "outputs": "processed_outputs/ (unit_table, summary_by_cell, contrasts, decision_inputs, composite_decisions, anchors, ANALYSIS_RUN.json)",
+  "anchors": "9/9 byte-equal to the frozen units",
+  "independent_recompute": "verification/independent_recompute.json (script sha256 594962AF75BF324F...): 0 disagreements",
+  "composites": {
+   "D1_transfer": "not_observed",
+   "D1_transfer_e100": "not_observed",
+   "D2_increment": "not_supported",
+   "D2_increment_e100": "supported",
+   "budget_agreement": "budget_dependent"
+  }
+ }
+}

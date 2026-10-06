@@ -1,0 +1,135 @@
+{
+ "run_id": "2026-10-05_claude_mta_cuda_r1_f1conv",
+ "makale_kisa_adi": "dendritic_ann_branching_controlled",
+ "operation_id": "neucom-r1-f1conv-protocol-launch-20261005",
+ "methodology_change_id": "MC-NEURO-R1-004",
+ "decisions": [
+  "DEC-NEURO-021 (F1 convergence arm at 100 epochs; the frozen 30-epoch labels stay primary)"
+ ],
+ "protocol": {
+  "path": "MD/09_audit_revision/R1_EVIDENCE_PROTOCOL.md",
+  "sha256_at_lock": "351a54e15cf2dffd26235541a5ad9eecf070f33a635aae5638de737517527dd4",
+  "lock_line": "Protocol lock: MC-NEURO-R1-004 MD/09_audit_revision/R1_EVIDENCE_PROTOCOL.md sha256=351a54e15cf2dffd26235541a5ad9eecf070f33a635aae5638de737517527dd4 at 2026-10-05T16:44:42+03:00",
+  "family": "F1 convergence arm: full-data FashionMNIST, KMNIST, CIFAR-10; DANN-LRF, Naive-Branch, MLP-Param, DANN-RANDOM; seeds 0-19; 100 epochs; amendments A18-A19"
+ },
+ "status": "delivered_verified (remote copy kept)",
+ "run_kind": "canonical (budget-sensitivity arm of F1, reported whatever the outcome; interpretation rules i-viii of protocol Section 11)",
+ "tool": "Cowork-Claude",
+ "model_or_session": "claude-opus-5-5 (max)",
+ "host_label": "mta-cuda",
+ "hostname": "<experiment-host>",
+ "local_run_folder": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/",
+ "remote_run_folder": "<remote-home>/experiments/SCI-reports_bias_dendritic_dac_package/2026-10-03/runs/2026-10-05_claude_mta_cuda_r1_f1conv/",
+ "sync_status": "delivered 2026-10-05 21:01 +03:00 with a receipt written on the host before transfer; local verify_delivery PASS (734 members, 4/4 negative controls); archive sha256 equal by a second tool; remote copy NOT removed (HT-NEURO-007)",
+ "platform_envelope": {
+  "os_family": "Linux",
+  "arch": "x86_64",
+  "python": "3.12.3"
+ },
+ "working_directory": "<remote-home>/experiments/SCI-reports_bias_dendritic_dac_package/2026-10-03/code_00983a91716f",
+ "command": "nice -n 10 ionice -c2 -n7 bash r1/run_worker.sh <code_dir> <plan> <out_dir> 2026-10-05_claude_mta_cuda_r1_f1conv <remote-home>/experiments/SCI-reports_bias_dendritic_dac_package/2026-10-03/data <k> 2 (k = 0, 1; R1_IDENTITY_FILE set)",
+ "launcher": "env/delivery/mta_launch_f1conv.sh (hash, identity, environment, code-fingerprint, KMNIST and resource preflight; then r1/launch_batch.sh with two workers)",
+ "script": "r1/r1_runner.py (unchanged since v4); models and data through the r0 code path (r1_models.py and r1_data.py of v7)",
+ "config": "configs/plan_f1conv_run.json (sha256 37F966BF2938377CC6AFF43FFC57C3C7BAFE103C0A147E3E5BF019A67CD21B49, 240 units)",
+ "code_snapshot": {
+  "version": "v7 (unchanged; already staged)",
+  "code_fingerprint": "3F58C2F17EB944F7409AD3B7021919CB60996ABC530A77742F3BEC10E2D83BD0",
+  "archive": "experiments/2026-10-04_claude_mta_cuda_r1_tierd/env/transfer_v7/code_snapshot.tar.gz",
+  "archive_sha256": "00983A91716F7D93955405EF69005779CDBB31B41CCD2E6C5DEB3A3C463588D6"
+ },
+ "plan_builder": {
+  "path": "dann_benchmark/r1/r1_plan.py (f1conv_run; local only, not needed on the host)",
+  "sha256": "6570F2A30455402C867C093B9C65331ED4DBCED06A623AD2A53452D549569C3D",
+  "structural_check": "configs/check_plan_f1conv.py (sha256 DAF0FE2523876653E6C9E57C5C41C00E2317A0615E9695DA4EDE069595C1E8C2): 240 units, 0 problems against the frozen plan; stored tier D plan equals its builder"
+ },
+ "dataset": "FashionMNIST, KMNIST and CIFAR-10 (full data); KMNIST restaged from dann_benchmark/data/KMNIST (six files, sha256 checked on the host)",
+ "split": "90/10 fit/validation from the training partition by the data seed; full 10,000-image test set",
+ "seed": "0-19",
+ "hyperparameters": {
+  "epochs": 100,
+  "batch_size": 256,
+  "lr": 0.001,
+  "val_fraction": 0.1,
+  "soma_units": 128,
+  "branches_per_soma": 4,
+  "sample_size": 16,
+  "patch_h": 4,
+  "patch_w": 4
+ },
+ "baselines_or_methods": [
+  "dann_lrf",
+  "naive_branch",
+  "mlp_param",
+  "dann_random"
+ ],
+ "resource_limits": {
+  "workers_threads": "2 workers x 2 threads",
+  "priority": "nice -n 10, ionice -c2 -n7",
+  "projected_wall_clock": "about 1.5-2 h with two workers (projection)",
+  "ceiling_wall_clock": "6 h from launch (hard stop 12 h)",
+  "unit_timeout_s": 1800,
+  "rss_per_worker_ceiling_bytes": 6442450944,
+  "disk_free_floor_gb": 10
+ },
+ "freeze_binding": {
+  "freeze_id": "MC-NEURO-R1-004 (A12 precedent: the change id is the freeze id; NEURO-R1-FREEZE-001 final and untouched)",
+  "identity_file": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/configs/IDENTITY.json",
+  "identity_sha256": "E72DBE8220933E4E73153D31C2A23C8D40B72230848A0A64D3A7D474D4F76DB0"
+ },
+ "analysis_bound_before_results": {
+  "aggregate_script": "dann_benchmark/r1/aggregate_f1conv.py",
+  "aggregate_script_sha256": "DC7BA283041C44B297697788C1D41BCAF9514EFF46304F2008F513DE37B6B7CC",
+  "aggregate_selftest": "90 checks, FAILED none (2026-10-05, pinned versions Python 3.12.12, NumPy 2.3.5, SciPy 1.18.0)",
+  "statistics_source": "dann_benchmark/r1/aggregate_r1.py",
+  "statistics_source_sha256": "301AA589613520E77684659160D49B33C0F1A0E045A54648554B48A202651610",
+  "independent_recompute_script": "verification/independent_recompute_f1conv.py",
+  "independent_recompute_sha256": "981D380AC7578BE155DC41769E6D3A246DDFDB06F3C298077DDCF588EAD5555B",
+  "independent_recompute_test": "verification/test_independent_recompute_f1conv.py (sha256 25D257E6698ABED99433B601954968882335E602980B48F63A3DDDDF1066BB88): positive control PASS, three negative controls DISAGREE as planted, tool-fault case exit 3"
+ },
+ "manuscript_locations": [
+  "NEURO/manuscript-r1: budget-sensitivity rows or paragraph for RQ1/RQ2 (placement decided after the outcome); Discussion, Limitations, future work; response R2-9"
+ ],
+ "notes": "budget-sensitivity arm of F1; cannot change any NEURO-R1-FREEZE-001 verdict; the 30-epoch labels stay primary",
+ "environment": {
+  "os": "Ubuntu 24.04.4 LTS",
+  "shell": "bash",
+  "runtime": "Python 3.12.3 (/usr/bin/python3, user site <remote-home>/.local)",
+  "virtualenv_or_container": "none; existing user-site CUDA environment (TOOL_ENVIRONMENT.md MTA-cuda Environment rule)",
+  "libraries_or_lockfile": "torch 2.13.0+cu130, torchvision 0.28.0+cu130 (frozen environment of protocol Section 1)",
+  "cpu": "Intel i7-14700 (20C/28T)",
+  "ram": "31 GiB",
+  "gpu": "NVIDIA GeForce RTX 5060 8 GB"
+ },
+ "started_at_local": "2026-10-05 16:48:07 +03:00",
+ "launched_at_utc": "2026-10-05T13:48:07Z",
+ "launch_record": "LAUNCHED on the host: two workers (supervisor pids 392185, 392186; runners 392193, 392194), identity sha256 e72dbe82..., plan sha256 37f966bf...; preflight PASS (plan and identity hashes, KMNIST 6/6 sha256 OK, environment equal to the identity, code fingerprint 3F58C2F17EB944F7 equal, 240 units at 100 epochs, disk 22 GB free, memory 25 GB available, no foreign GPU process); protocol lock verified immediately before the launch",
+ "first_status": "2026-10-05T13:49:53Z: 2 of 240 validated, both workers RUNNING, RSS about 1.62 GB per worker, GPU 25 %, no foreign compute process, disk 22 GB free",
+ "ended_at_utc": "2026-10-05T15:30:58Z",
+ "delivery": {
+  "operation_id": "neucom-r1-f1conv-delivery-analysis-20261005",
+  "terminal": "both workers COMPLETED/0 (2026-10-05T15:30:22Z and 15:30:58Z); 240 of 240 validated",
+  "archive": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/raw_outputs/2026-10-05_claude_mta_cuda_r1_f1conv__outputs.tar.gz",
+  "archive_sha256": "F4A2CB5FC2F007CFCC09C847B43D80AC8C44A06EB7B9C05188C81F8590A08C36",
+  "archive_bytes": 1152521,
+  "file_members": 734,
+  "receipt": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/raw_outputs/2026-10-05_claude_mta_cuda_r1_f1conv__TRANSFER_RECEIPT_outputs.json",
+  "receipt_sha256": "94D00D1CD2863434351FFE1FB92AD2BFB92D1BF18582295B613FF9C3693F50D6",
+  "local_verification": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/raw_outputs/DELIVERY_VERIFICATION.json (PASS; 4/4 negative controls rejected; archive hash by a second tool)",
+  "verified_at_utc": "2026-10-05T18:01:21Z"
+ },
+ "analysis": {
+  "operation_id": "neucom-r1-f1conv-delivery-analysis-20261005",
+  "script": "r1/aggregate_f1conv.py",
+  "script_sha256": "DC7BA283041C44B297697788C1D41BCAF9514EFF46304F2008F513DE37B6B7CC",
+  "versions": {
+   "python": "3.12.12",
+   "numpy": "2.3.5",
+   "scipy": "1.18.0"
+  },
+  "versions_match_pinned": true,
+  "prefix_gate": "pass (epochs 1-30 of every 100-epoch history equal the frozen 30-epoch history row for row)",
+  "contrasts": 9,
+  "processed_outputs": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/processed_outputs/",
+  "independent_recompute": "experiments/2026-10-05_claude_mta_cuda_r1_f1conv/verification/independent_recompute.json (PASS, 0 disagreements)"
+ }
+}
