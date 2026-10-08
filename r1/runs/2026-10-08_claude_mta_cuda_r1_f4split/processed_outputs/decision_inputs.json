@@ -1,0 +1,32 @@
+{
+  "criteria": [
+    {
+      "all_positive": true,
+      "criterion_id": "split_positive_count",
+      "direction_expected": "positive",
+      "direction_observed": "positive",
+      "mean_diff_pp": 0.76,
+      "min_diff_pp": 0.56,
+      "of": 10,
+      "sd_diff_pp": 0.150996688705415,
+      "value": 10
+    },
+    {
+      "all_positive": true,
+      "criterion_id": "order_positive_count",
+      "direction_expected": "positive",
+      "direction_observed": "positive",
+      "mean_diff_pp": 0.67,
+      "min_diff_pp": 0.26,
+      "of": 10,
+      "sd_diff_pp": 0.199276469035135,
+      "value": 10
+    }
+  ],
+  "discriminators": "per-source count of positive paired differences and its minimum; the gate pass flag",
+  "reproduction_gate": {
+    "equal": 10,
+    "pass": true,
+    "rows": 10
+  }
+}
