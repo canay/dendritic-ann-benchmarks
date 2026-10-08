@@ -1,0 +1,7 @@
+{
+  "r1/aggregate_f4split.py": {
+    "bytes": 18741,
+    "sha256": "F71092EDBA41BC3C11B037B1D38138BB3DA872C437B0BF75529D592EDE0F26DB",
+    "role": "analysis script bound before the results (RUN_MANIFEST.json, analysis_bound_before_results); added next to the v8 snapshot, which the run executed unchanged"
+  }
+}

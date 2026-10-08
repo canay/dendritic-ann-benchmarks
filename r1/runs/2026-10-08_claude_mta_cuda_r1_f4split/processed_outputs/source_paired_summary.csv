@@ -1,0 +1,3 @@
+source,diff_n,diff_mean,diff_sd,diff_min,diff_max,n_positive,n_zero,n_negative,diffs_correct_images
+split,10,0.76,0.150996688705415,0.56,1.1,10,0,0,69;72;87;56;77;83;68;110;76;62
+order,10,0.67,0.199276469035135,0.26,0.93,10,0,0,69;26;64;46;76;63;84;63;93;86

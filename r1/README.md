@@ -19,6 +19,7 @@ the table in `analysis/`.
 | `runs/2026-10-04_claude_mta_cuda_r1_f10_cpu/` | F10 timing on the CPU (51 measurement units) |
 | `runs/2026-10-04_claude_mta_cuda_r1_tierd/` | Extension: the minimal Transformer front end with three heads (D1) and flattened CIFAR-100 (D2), each at the 30-epoch protocol and in a 100-epoch budget arm: 449 training runs, 9 of them repeats of frozen runs |
 | `runs/2026-10-05_claude_mta_cuda_r1_f1conv/` | Budget arm A18: the full-data F1 contrasts of DANN-LRF, Naive-Branch, MLP-Param and DANN-RANDOM continued to 100 epochs, 240 training runs whose first 30 epochs reproduce the stored histories of the frozen run |
+| `runs/2026-10-08_claude_mta_cuda_r1_f4split/` | Randomness arm A20: the data seed of F4 replaced by a split seed and a minibatch-order seed, each varied over ten values with DANN-LRF and Naive-Branch on FashionMNIST: 38 training runs plus 8 repeats of frozen runs, whose histories and those of the two value-0 runs reproduce the frozen F4 histories |
 | `analysis/R1_ANALYSIS_MANIFEST.json` | Statistical analysis manifest (primary metric, tests, bootstrap, effect sizes, Holm groups, decision labels, replication rule) |
 | `analysis/r0_paired_tests_validation_selected.csv` | Paired-test table of the submitted analysis, read by the replication check |
 | `figures/r1/` | `build_r1_assets.py` (result tables and result figures) and `verify_r1_assets.py` (independent re-check), with the generated figure data, fit diagnostics, figure PDFs and `PROVENANCE.json` in `out/`; `build_tierd_assets.py` and `verify_tierd_assets.py` (extension table) and `build_f1conv_assets.py` and `verify_f1conv_assets.py` (budget-arm block of the contrast table), with their text numbers and provenance in `out/` |
@@ -41,6 +42,9 @@ byte-identical to the snapshot of the frozen run. The extension and the budget a
 `r1/aggregate_tierd.py` and `r1/check_tierd.py` and extends `r1/r1_data.py`, `r1/r1_models.py` and `r1/r1_plan.py` for the
 Transformer front end and CIFAR-100. The budget arm executed it unchanged; its `src/` also holds `r1/aggregate_f1conv.py`,
 the analysis fixed before its results, which `src/ANALYSIS_ADDITIONS.json` lists and `src/CODE_MANIFEST.json` does not.
+The randomness arm ran a fourth snapshot, which changes only `r1/r1_runner.py` (two optional unit fields, `split_seed` and
+`order_seed`, both defaulting to the data seed, so every earlier plan runs as before) and `r1/r1_plan.py` (the plan of the
+arm); its `src/` also holds `r1/aggregate_f4split.py`, the analysis fixed before its results, listed in `src/ANALYSIS_ADDITIONS.json`.
 
 ## Public archives
 
@@ -48,8 +52,8 @@ The public archives keep, with their original member paths, `IDENTITY.json`, `co
 and terminal-status records, every unit's `result.json`, and every per-epoch `history.csv` (accuracy runs) or
 `progress.json` (timing runs). Heartbeat streams, process logs, launch markers, duplicate `attempt.json` copies and
 stderr logs are left out. Every `history.csv` is byte-identical to the delivered member. The member lists give the
-SHA-256 of each public member and of the delivered member. The archives of the extension and the budget arm follow the
-same rules.
+SHA-256 of each public member and of the delivered member. The archives of the extension, the budget arm and the
+randomness arm follow the same rules.
 
 ## Privacy edits
 
@@ -130,6 +134,12 @@ The build scripts need pandas (2.3.3 was used). On the author's machine the rebu
 byte-identical to the files used in the revised manuscript, and the two verifications re-read 604 and 422 values with no
 failure. The `verification/` folder of each run holds the independent recomputation of every label from the per-unit
 histories.
+
+The processed outputs of the randomness arm were produced by `src/r1/aggregate_f4split.py` (Python standard library only)
+from the extracted delivered archive. Its reproduction gate compares the histories of the eight repeated runs and of the
+two value-0 runs with the delivered SHA-256 of the frozen F4 histories, which the member list of the frozen public archive
+also records; all ten are equal. The arm is descriptive (no test and no label), and `verification/independent_recompute.json`
+holds its independent recomputation (0 disagreements).
 
 Re-running a training plan needs the datasets described in `dann_benchmark/DATASETS.md`. Every `result.json`
 records SHA-256 hashes of the training and test tensors (`data_hashes`), so a re-run can be checked against the same

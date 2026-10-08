@@ -1,0 +1,54 @@
+{
+ "schema_version": 1,
+ "verdict": "PASS",
+ "run_id": "2026-10-08_claude_mta_cuda_r1_f4split",
+ "verified_at_local": "2026-10-08 02:56 +0300",
+ "verified_at_utc": "2026-10-07T23:56:22Z",
+ "tool": "Cowork-Claude",
+ "model": "claude-opus-5-5 (xhigh)",
+ "operation_id": "neucom-r1-round-e-20261007",
+ "archive": {
+  "path": "2026-10-08_claude_mta_cuda_r1_f4split__outputs.tar.gz",
+  "sha256": "17A7E2AC44D198BA2210C352AFA0EE83D80263D2B4955D66F0B901834B25085D",
+  "bytes": 83762
+ },
+ "receipt": {
+  "path": "2026-10-08_claude_mta_cuda_r1_f4split__TRANSFER_RECEIPT_outputs.json",
+  "sha256": "133A7C8A1A90567FF15D1CAF754F92DAD890741A9C2161583DDE8D8FB341658B",
+  "written_at_utc": "2026-10-07T23:56:11Z",
+  "direction": "mta-cuda->local"
+ },
+ "checks": {
+  "archive_sha256_equals_receipt": true,
+  "member_set_equal": true,
+  "file_members": 152,
+  "member_bytes_and_sha256_equal": true
+ },
+ "negative_controls_rejected": {
+  "receipt_archive_sha_tampered": true,
+  "receipt_member_removed": true,
+  "receipt_member_added": true,
+  "receipt_member_hash_tampered": true
+ },
+ "administrative_members": [
+  "2026-10-08_claude_mta_cuda_r1_f4split/LAUNCHED",
+  "2026-10-08_claude_mta_cuda_r1_f4split/logs/worker_w0.log",
+  "2026-10-08_claude_mta_cuda_r1_f4split/logs/worker_w1.log",
+  "2026-10-08_claude_mta_cuda_r1_f4split/workers/environment_w0.json",
+  "2026-10-08_claude_mta_cuda_r1_f4split/workers/environment_w1.json",
+  "2026-10-08_claude_mta_cuda_r1_f4split/workers/heartbeat_w0.json",
+  "2026-10-08_claude_mta_cuda_r1_f4split/workers/heartbeat_w0.jsonl",
+  "2026-10-08_claude_mta_cuda_r1_f4split/workers/heartbeat_w1.json",
+  "2026-10-08_claude_mta_cuda_r1_f4split/workers/heartbeat_w1.jsonl",
+  "2026-10-08_claude_mta_cuda_r1_f4split/workers/terminal_status_w0.json",
+  "2026-10-08_claude_mta_cuda_r1_f4split/workers/terminal_status_w1.json"
+ ],
+ "administrative_changes": [],
+ "administrative_changes_note": "archive kept compressed and verified in place; nothing was extracted or edited locally",
+ "invariants_from_receipt": {
+  "result_json_files": 46,
+  "unit_dirs": 46
+ },
+ "problems": [],
+ "metrics_read": false
+}

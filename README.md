@@ -32,8 +32,9 @@ Repository URL: `https://github.com/canay/dendritic-ann-benchmarks`
 The revised study extends the submitted benchmark with 20 seeds per condition, a matched-initialization control,
 a pixel-permutation control, channel-aware routing, reference priors at the same parameter budget (a locally
 connected network, a random-sparse MLP and two compact convolutional networks), a convolutional-stem setting,
-CPU and GPU timing, an extension with a minimal Transformer front end and flattened CIFAR-100, and a 100-epoch budget
-arm of the main grid. All of it lives under `r1/`; the folders of the submitted version below are unchanged.
+CPU and GPU timing, an extension with a minimal Transformer front end and flattened CIFAR-100, a 100-epoch budget
+arm of the main grid, and a randomness arm that varies the data split and the minibatch order separately. All of it lives
+under `r1/`; the folders of the submitted version below are unchanged.
 
 ## What is intentionally excluded
 
