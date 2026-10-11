@@ -1,2 +1,4 @@
-# Store the revision payload byte for byte (its checksums are published).
-r1/** -text
+# Store the run payload byte for byte (its checksums are published).
+runs/** -text
+analysis/** -text
+figures/** -text

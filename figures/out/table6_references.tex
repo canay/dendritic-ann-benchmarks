@@ -1,0 +1,20 @@
+\multicolumn{8}{@{}l}{\textit{Pre-specified references (Holm over 11 contrasts)}} \\
+\DANNLRF{} $-$ compact CNN & FashionMNIST full & 6.22 & [5.92, 6.49] & $<$0.001 & 9.07 & 1.00 & supported \\
+\DANNLRF{} $-$ compact CNN & KMNIST full & 18.94 & [18.13, 19.75] & $<$0.001 & 9.84 & 1.00 & supported \\
+\DANNLRF{} $-$ compact CNN & CIFAR-10 full & $-$0.47 & [$-$0.82, $-$0.13] & 0.026 & $-$0.58 & $-$0.57 & reverse \\
+\DANNLRF{} $-$ LC network & FashionMNIST full & $-$0.27 & [$-$0.40, $-$0.14] & 0.005 & $-$0.93 & $-$0.78 & reverse \\
+\DANNLRF{} $-$ LC network & KMNIST full & $-$4.89 & [$-$5.13, $-$4.62] & $<$0.001 & $-$8.30 & $-$1.00 & reverse \\
+\DANNLRF{} $-$ LC network & CIFAR-10 full & $-$0.80 & [$-$1.10, $-$0.49] & 0.003 & $-$1.14 & $-$0.88 & reverse \\
+\DANNLRF{} $-$ random-sparse MLP & FashionMNIST full & 0.23 & [0.13, 0.33] & 0.005 & 0.95 & 0.82 & supported \\
+\DANNLRF{} $-$ random-sparse MLP & KMNIST full & $-$1.17 & [$-$1.41, $-$0.92] & $<$0.001 & $-$2.07 & $-$1.00 & reverse \\
+\DANNLRF{} $-$ random-sparse MLP & CIFAR-10 full & 0.42 & [0.24, 0.61] & 0.005 & 0.97 & 0.81 & supported \\
+\DANNLRF{} $-$ MLP-Matched & CIFAR-10 full & 13.42 & [13.19, 13.65] & $<$0.001 & 25.05 & 1.00 & supported \\
+\DANNLRF{} $-$ MLP-Matched & CIFAR-10 0.2 & 8.75 & [8.28, 9.29] & $<$0.001 & 7.25 & 1.00 & supported \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{Exploratory spatial-head CNN$^{\dagger}$ (no test, no label)}} \\
+Spatial-head CNN$^{\dagger}$ $-$ \DANNLRF{} & FashionMNIST full & 2.85 & [2.70, 2.98] & n/a & 8.48 & 1.00 & exploratory \\
+Spatial-head CNN$^{\dagger}$ $-$ \DANNLRF{} & KMNIST full & 10.12 & [9.88, 10.38] & n/a & 17.22 & 1.00 & exploratory \\
+Spatial-head CNN$^{\dagger}$ $-$ \DANNLRF{} & CIFAR-10 full & 12.92 & [12.42, 13.38] & n/a & 11.66 & 1.00 & exploratory \\
+Spatial-head CNN$^{\dagger}$ $-$ compact CNN & FashionMNIST full & 9.06 & [8.82, 9.30] & n/a & 15.93 & 1.00 & exploratory \\
+Spatial-head CNN$^{\dagger}$ $-$ compact CNN & KMNIST full & 29.06 & [28.35, 29.77] & n/a & 17.45 & 1.00 & exploratory \\
+Spatial-head CNN$^{\dagger}$ $-$ compact CNN & CIFAR-10 full & 12.45 & [11.88, 12.96] & n/a & 9.88 & 1.00 & exploratory \\
