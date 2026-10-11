@@ -472,7 +472,7 @@ for r in units[units.family == "F3_sensitivity"].itertuples():
         params_f3[(prefix, int(k), int(b))] = int(r.effective_params)
 
 fig, axes = plt.subplots(2, 2, figsize=(7.0, 5.6))
-plt.subplots_adjust(wspace=0.42, hspace=0.62)
+plt.subplots_adjust(wspace=0.84, hspace=0.62)  # column gap doubled from 0.42 (author, 2026-10-11 22:5x: the panels sat too close)
 fig_data = []
 for ax, prefix, letter, title_note in ((axes[0, 0], "fashion_full", "a", "FashionMNIST"),
                                        (axes[0, 1], "kmnist_full", "b", "KMNIST")):
@@ -564,7 +564,7 @@ plt.close(fig)
 
 # Figure 4: slope dose-response and learning-rate controls
 fig, axes = plt.subplots(2, 2, figsize=(7.0, 5.2))
-plt.subplots_adjust(wspace=0.36, hspace=0.62)
+plt.subplots_adjust(wspace=0.54, hspace=0.62)  # column gap +50% from 0.36 (author, 2026-10-11 22:5x: the panels sat too close)
 slopes = [("a0", 0.0), ("a0p05", 0.05), ("a0p1", 0.1), ("a0p2", 0.2), ("a0p5", 0.5), ("a1", 1.0)]
 fig_data = []
 for ax, (cond, ds, letter) in zip((axes[0, 0], axes[0, 1], axes[1, 0]),

@@ -367,11 +367,11 @@
  "carriers": {
   "fig_sensitivity.png": {
    "dpi": 1200,
-   "width_px": 7623
+   "width_px": 7643
   },
   "fig_controls.png": {
    "dpi": 1250,
-   "width_px": 7563
+   "width_px": 7665
   }
  },
  "composite": [

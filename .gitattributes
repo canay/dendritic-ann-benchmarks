@@ -1,4 +1,3 @@
-# Store the run payload byte for byte (its checksums are published).
-runs/** -text
-analysis/** -text
-figures/** -text
+# Store and check out every file byte for byte: the checksums in SHA256SUMS are the
+# repository's own bytes on every platform.
+* -text
